@@ -12,13 +12,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core'; 
 import { CoursesearchPipe } from '../Pipes/coursesearch.pipe';
 import { CategorysearchPipe } from '../Pipes/categorysearch.pipe';
+import { StudentnavbarComponent } from './studentnavbar/studentnavbar.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
     CoursesearchPipe,
-    CategorysearchPipe
+    CategorysearchPipe,
+    StudentnavbarComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { CategorysearchPipe } from '../Pipes/categorysearch.pipe';
     MatSelectModule,
     MatOptionModule,
     CoursesearchPipe,
-    CategorysearchPipe
+    CategorysearchPipe,
+    StudentnavbarComponent
   
   ]
 })
