@@ -18,7 +18,7 @@ export class ManagecoursesComponent implements OnInit {
   pData :any ;
   categories: any[] = [];
   trainers: any[] = [];
-
+  _filetrText: string ='';
   updateForm:FormGroup =new FormGroup
   ({
     id : new FormControl('',),

@@ -4,7 +4,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
 <div class="body-wrapper">
     <div class="container-fluid">
       <!-- <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button> -->
-      
+      <input type="text" [(ngModel)]="_filetrText">
         <div class="col-lg-8 d-flex align-items-stretch">
             <div class="card w-100">
               <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button>
@@ -43,7 +43,8 @@ data-sidebar-position="fixed" data-header-position="fixed">
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let course of mc.courses">
+                      <!-- <tr *ngFor="let course of mc.courses"> -->
+                        <tr *ngFor="let course of mc.courses | coursesearch:_filetrText">
                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{course.id}}</h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">{{course.name}}</h6>

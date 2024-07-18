@@ -14,6 +14,7 @@ export class ManagecategoriesComponent implements OnInit {
   constructor(public managecat : MainService ,public dialog: MatDialog){ 
   }
   pData :any ;
+  _filetrText: string ='';
   @ViewChild('deleteDailog') callDeleteDailog!:TemplateRef<any>; 
   @ViewChild('updateDialog') callUpdateDailog!:TemplateRef<any>;
 

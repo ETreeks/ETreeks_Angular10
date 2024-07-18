@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+//import { CoursesearchPipe } from './Pipes/coursesearch.pipe';
+//import { CategorysearchPipe } from './Pipes/categorysearch.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+  
   ],
   imports: [
     BrowserModule,
