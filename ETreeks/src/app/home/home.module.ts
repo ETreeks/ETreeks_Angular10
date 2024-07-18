@@ -11,6 +11,7 @@ import { CourseCardComponent } from './course-card/course-card.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
 
 
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -18,7 +19,7 @@ import { CategoryCardComponent } from './category-card/category-card.component';
     ContactComponent,
     TestimonialComponent,
     CourseCardComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
   ],
   imports: [
     CommonModule,
