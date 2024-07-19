@@ -12,13 +12,13 @@
               <p class="text-center">Register As a Coach</p>
               <form [formGroup]="CoachRegisterForm">
                 <div class="mb-3">
-                  <label for="exampleInputtext1" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="exampleInputtext1" formControlName="Fname" aria-describedby="textHelp">
+                  <label for="Fname" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="Fname" formControlName="Fname" aria-describedby="textHelp">
                   <span class="text-danger" *ngIf="CoachRegisterForm.controls['Fname'].hasError('required')">Your First Name is required</span>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputtext1" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="exampleInputtext1" formControlName="Lname" aria-describedby="textHelp">
+                  <label for="Lname" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="Lname" formControlName="Lname" aria-describedby="textHelp">
                   <span class="text-danger" *ngIf="CoachRegisterForm.controls['Lname'].hasError('required')">Your Last Name is required</span>
                 </div>
                 <div class="mb-3">

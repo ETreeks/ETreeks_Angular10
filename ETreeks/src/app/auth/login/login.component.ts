@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,11 @@ export class LoginComponent implements OnInit {
   // email = new FormControl('ex@ample.com',[Validators.required,Validators.email]);
   // password2 : FormControl = new FormControl('*******',[Validators.required,Validators.minLength(8)]);
 
-  username: string = '';
-  password: string = '';
+  username: FormControl =new FormControl('',[Validators.required]);
+  password: FormControl = new FormControl('',[Validators.required,Validators.minLength(8)]);
   rememberMe: boolean = false;
 
-  constructor() {}
+  constructor(private auth:AuthService) {}
 
   ngOnInit(): void {
     this.checkRememberMe();
@@ -25,8 +26,8 @@ export class LoginComponent implements OnInit {
     const savedUsername = localStorage.getItem('username');
     const savedPassword = localStorage.getItem('password');
     if (savedUsername && savedPassword) {
-      this.username = savedUsername;
-      this.password = savedPassword;
+      this.username.setValue (savedUsername);
+      this.password.setValue(savedPassword);
       this.rememberMe = true;
     }
   }
@@ -36,12 +37,19 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.rememberMe) {
-      localStorage.setItem('username', this.username);
-      localStorage.setItem('password', this.password);
+      localStorage.setItem('username', this.username.value);
+      localStorage.setItem('password', this.password.value);
     } else {
       localStorage.removeItem('username');
       localStorage.removeItem('password');
     }
 
+  }
+
+  submit()
+  {
+    console.log(this.username.value);
+    console.log(this.password.value);
+this.auth.Login(this.username.value , this.password.value);
   }
 }

@@ -13,15 +13,15 @@ data-sidebar-position="fixed" data-header-position="fixed">
             <p class="text-center">Register  As a Student</p>
             <form [formGroup]="studentRegisterForm">
               <div class="mb-3">
-                <label for="exampleInputtext1" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="exampleInputtext1" formControlName="Fname" aria-describedby="textHelp">
+                <label for="Fname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="Fname" formControlName="Fname" aria-describedby="textHelp">
                 <span class="text-danger" 
                 *ngIf="studentRegisterForm.controls['Fname'].hasError('required')">Your First Name is required</span>
               
               </div>
               <div class="mb-3">
-                <label for="exampleInputtext1" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="exampleInputtext1" formControlName="Lname" aria-describedby="textHelp">
+                <label for="Lname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="Lname" formControlName="Lname" aria-describedby="textHelp">
                 <span class="text-danger" 
                 *ngIf="studentRegisterForm.controls['Lname'].hasError('required')">Your Last Name is required</span>
               
