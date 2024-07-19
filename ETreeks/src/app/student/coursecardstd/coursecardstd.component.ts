@@ -11,7 +11,7 @@ export class CoursecardstdComponent implements OnInit {
   constructor( public s:StudentService){}
   @Input() course: any; 
 
-  userId: number = 4 ; 
+  userId: number = 4 ; // Dynamic 
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
