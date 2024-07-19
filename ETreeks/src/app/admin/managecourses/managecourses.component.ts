@@ -71,7 +71,7 @@ export class ManagecoursesComponent implements OnInit {
   }
 
   openDeleteDailog(id:number){
-    const dailogResult=   this.dialog.open(this.callDeleteDailog);
+    const dailogResult=this.dialog.open(this.callDeleteDailog);
     dailogResult.afterClosed().subscribe((result)=>{
      if(result !=undefined){
        if(result=='yes') 

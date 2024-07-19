@@ -13,6 +13,7 @@ export class MainService {
   courses:any=[];
   categories:any =[];
   displayImage:any;
+ 
 
 
 //hits api
@@ -34,6 +35,7 @@ DeleteCourse(id:number)
   debugger
 this.http.delete('https://localhost:7281/api/Course/'+id).subscribe((res:any)=>{
 console.log('Deleted');
+window.location.reload();
 
 },err=>{
 console.log('Error');
@@ -65,6 +67,7 @@ DeleteCategory(id:number)
   debugger
 this.http.delete('https://localhost:7281/api/Category/DeleteCategory/'+id).subscribe((res:any)=>{
 console.log('Deleted');
+window.location.reload();
 
 },err=>{
 console.log('Error');

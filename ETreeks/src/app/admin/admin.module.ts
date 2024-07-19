@@ -18,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { SearchdatesComponent } from './searchdates/searchdates.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
+import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CreateCourseComponent } from './create-course/create-course.component';
     ViewcontactComponent,
     CreateCategoryComponent,
     CreateCourseComponent,
-    SearchdatesComponent
+    SearchdatesComponent,
+    ManagetestimonialsComponent
   ],
   imports: [
     CommonModule,

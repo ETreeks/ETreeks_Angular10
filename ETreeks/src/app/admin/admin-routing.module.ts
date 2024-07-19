@@ -12,6 +12,7 @@ import { EdithomeComponent } from './edithome/edithome.component';
 import { EditaboutComponent } from './editabout/editabout.component';
 import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { SearchdatesComponent } from './searchdates/searchdates.component';
+import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path:'SearchDate',
     component:SearchdatesComponent
+  },
+  {
+    path:'testimonial',
+    component:ManagetestimonialsComponent
   }
 
 

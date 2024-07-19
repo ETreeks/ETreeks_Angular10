@@ -12,6 +12,8 @@ import { TestimonialstdComponent } from './testimonialstd/testimonialstd.compone
 import { ViewprofilestdComponent } from './viewprofilestd/viewprofilestd.component';
 import { EditprofilestdComponent } from './editprofilestd/editprofilestd.component';
 import { DeleteprofilestdComponent } from './deleteprofilestd/deleteprofilestd.component';
+import { CategorycardstdComponent } from './categorycardstd/categorycardstd.component';
+import { CoursecardstdComponent } from './coursecardstd/coursecardstd.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { DeleteprofilestdComponent } from './deleteprofilestd/deleteprofilestd.c
     TestimonialstdComponent,
     ViewprofilestdComponent,
     EditprofilestdComponent,
-    DeleteprofilestdComponent
+    DeleteprofilestdComponent,
+    CategorycardstdComponent,
+    CoursecardstdComponent
   ],
   imports: [
     CommonModule,

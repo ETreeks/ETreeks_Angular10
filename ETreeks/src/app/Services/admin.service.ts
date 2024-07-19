@@ -38,6 +38,8 @@ export class AdminService {
   viewcontactobj : any = [];
 
   gethome : any=[];
+  testimonial:any=[];
+
   //hits api
   getAllRegisteredTrainers()
   {
@@ -306,6 +308,7 @@ err=>{
 {
 this.http.delete('https://localhost:7281/api/Contact/'+id).subscribe((res:any)=>{
 console.log('Deleted');
+window.location.reload();
 
 },err=>{
 console.log('Error');
@@ -370,8 +373,42 @@ getAboutData() {
 
 
 
+getAllTestimonial()
+{
+this.http.get('https://localhost:7281/api/Testimonial').subscribe(res=>
+{
+this.testimonial=res; 
+},
+err=>{
+console.log("error");
+console.log(err.status);
+console.log(err.manage);
+})
+}
+
+DeleteTestimonial(id:number)
+{
+this.http.delete('https://localhost:7281/api/Testimonial/'+id).subscribe((res:any)=>{
+console.log('Deleted');
+window.location.reload();
+
+},err=>{
+console.log('Error');
+})
+}
 
 
+AcceptTest(id: number) {
+  this.http.put('https://localhost:7281/api/Admin/AcceptT/' + id, {}).subscribe(
+    (res: any) => {
+      console.log('Accepted');
+      window.location.reload();
+    },
+    err => {
+      console.log('Error', err);
+    }
+  );
+}
 
 
 
