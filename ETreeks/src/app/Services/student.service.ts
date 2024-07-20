@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +34,18 @@ export class StudentService {
     );
     window.location.reload();
   }
+
+  getTrainerSessionsByUsername(username: string): Observable<SessionDTO[]> {
+    debugger
+    return this.http.get<SessionDTO[]>(`https://localhost:7281/api/Student/GetTrainerSessionsByUsername/${username}`);
+  }
+  
+}
+
+
+export interface SessionDTO {
+  courseName: string;
+  sessionName: string;
+  startDate: Date;
+  endDate: Date;
 }

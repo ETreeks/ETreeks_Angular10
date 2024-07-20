@@ -9,6 +9,7 @@ import { TestimonialstdComponent } from './testimonialstd/testimonialstd.compone
 import { ViewprofilestdComponent } from './viewprofilestd/viewprofilestd.component';
 import { EditprofilestdComponent } from './editprofilestd/editprofilestd.component';
 import { DeleteprofilestdComponent } from './deleteprofilestd/deleteprofilestd.component';
+import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessioncourse.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,11 @@ const routes: Routes = [
   {
     path:'deleteprofile',
     component:DeleteprofilestdComponent
+  }
+  ,
+  {
+    path:'searchsessioncourse',
+    component:SearchsessioncourseComponent
   }
 ];
 

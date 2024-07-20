@@ -14,6 +14,7 @@ import { EditprofilestdComponent } from './editprofilestd/editprofilestd.compone
 import { DeleteprofilestdComponent } from './deleteprofilestd/deleteprofilestd.component';
 import { CategorycardstdComponent } from './categorycardstd/categorycardstd.component';
 import { CoursecardstdComponent } from './coursecardstd/coursecardstd.component';
+import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessioncourse.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CoursecardstdComponent } from './coursecardstd/coursecardstd.component'
     EditprofilestdComponent,
     DeleteprofilestdComponent,
     CategorycardstdComponent,
-    CoursecardstdComponent
+    CoursecardstdComponent,
+    SearchsessioncourseComponent
   ],
   imports: [
     CommonModule,
