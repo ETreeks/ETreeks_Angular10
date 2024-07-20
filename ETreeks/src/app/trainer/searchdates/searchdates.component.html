@@ -1,0 +1,49 @@
+
+
+<app-sidebartrainer></app-sidebartrainer>
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <div class="container-fluid">
+      <div>
+        <form (ngSubmit)="onSearch()">
+          <label for="startDate">Start Date:</label>
+          <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" required class="form-control mb-3">
+          
+          <label for="endDate">End Date:</label>
+          <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required class="form-control mb-3">
+          
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        
+        <div *ngIf="searchResults.length > 0" class="mt-4">
+          <h3>Search Results:</h3>
+          <div class="table-responsive">
+            <table class="table text-nowrap mb-0 align-middle">
+              <thead class="text-dark fs-6">
+                <tr>
+                  <th class="border-bottom-0">Full Name</th>
+                  <th class="border-bottom-0">Course Name</th>
+                  <th class="border-bottom-0">Category Name</th>
+                  <th class="border-bottom-0">Reservation Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let result of searchResults">
+                  <td class="border-bottom-0">{{ result.fullName }}</td>
+                  <td class="border-bottom-0">{{ result.courseName }}</td>
+                  <td class="border-bottom-0">{{ result.categoryname }}</td>
+                  <td class="border-bottom-0">{{ result.reservationdate | date: 'shortDate' }}</td>
+                </tr>
+                <tr *ngIf="searchResults.length === 0">
+                  <td colspan="4" class="text-center">No results found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
