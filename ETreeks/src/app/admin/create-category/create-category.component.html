@@ -1,9 +1,6 @@
 <h2 mat-dialog-title>Create New Category</h2>
 <mat-dialog-content class="mat-typography">
 
-
-
-
     <form class="example-form" [formGroup]="createCatForm">
         <mat-form-field class="example-full-width">
           <mat-label>Category Name</mat-label>
@@ -18,12 +15,8 @@
             <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)">
           </div>
 
-
       </form>
       
-
-
-
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>

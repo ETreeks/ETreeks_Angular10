@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 //import { CoursesearchPipe } from './Pipes/coursesearch.pipe';
 //import { CategorysearchPipe } from './Pipes/categorysearch.pipe';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,11 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
   
-    SharedModule
+    SharedModule ,
+    ToastrModule.forRoot(),
+    ToastNoAnimationModule.forRoot()
 
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

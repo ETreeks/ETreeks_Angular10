@@ -44,8 +44,18 @@ data-sidebar-position="fixed" data-header-position="fixed">
                             <button class="btn-danger" (click)="openDeleteDailog(t.id)"> Delete </button>
                             </td> 
                             
-                            <td>
+                            <!-- <td>
                               <button class="btn-primary" (click)="AcceptTest(t.id)"> Accept </button>
+                              </td> -->
+                           
+                              <td>
+                                <button class="btn" 
+                                        (click)="AcceptTest(t.id)" 
+                                        [disabled]="t.testimonialsstatus === 'Accepted'"
+                                        [ngClass]="{'accepted-button': t.testimonialsstatus === 'Accepted'}"
+                                        [ngClass]="{'pending-button': t.testimonialsstatus === 'Pending'}"> 
+                                  Accept 
+                                </button>
                               </td>
                       </tr>
                     </tbody>

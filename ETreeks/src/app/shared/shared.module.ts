@@ -14,6 +14,7 @@ import { CoursesearchPipe } from '../Pipes/coursesearch.pipe';
 import { CategorysearchPipe } from '../Pipes/categorysearch.pipe';
 import { StudentnavbarComponent } from './studentnavbar/studentnavbar.component';
 import { TrainernavbarComponent } from './trainernavbar/trainernavbar.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TrainernavbarComponent } from './trainernavbar/trainernavbar.component'
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatCardModule
     
   ],
   exports:[
@@ -50,7 +52,9 @@ import { TrainernavbarComponent } from './trainernavbar/trainernavbar.component'
     MatOptionModule,
     CoursesearchPipe,
     CategorysearchPipe,
-    StudentnavbarComponent
+    StudentnavbarComponent,
+    MatCardModule
+    
   
   ]
 })

@@ -15,6 +15,10 @@ import { DeleteprofilestdComponent } from './deleteprofilestd/deleteprofilestd.c
 import { CategorycardstdComponent } from './categorycardstd/categorycardstd.component';
 import { CoursecardstdComponent } from './coursecardstd/coursecardstd.component';
 import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessioncourse.component';
+import { SearchlocationComponent } from './searchlocation/searchlocation.component';
+import { TrainercardComponent } from './trainercard/trainercard.component';
+import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercourses.component';
+import { PaymentformComponent } from './paymentform/paymentform.component';
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessio
     DeleteprofilestdComponent,
     CategorycardstdComponent,
     CoursecardstdComponent,
-    SearchsessioncourseComponent
+    SearchsessioncourseComponent,
+    SearchlocationComponent,
+    TrainercardComponent,
+    ViewtrainercoursesComponent,
+    PaymentformComponent
   ],
   imports: [
     CommonModule,

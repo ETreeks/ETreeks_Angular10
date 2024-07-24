@@ -15,12 +15,14 @@ constructor(public homecontact : HomeService){}
     NAME:new FormControl('',[Validators.required]),
     MESSAGE:new FormControl('',[Validators.required]),
     SUBJECT:new FormControl('',[Validators.required]),
-    EMAIL1:new FormControl('ex@ample.com',[Validators.required])
+    EMAIL1:new FormControl('ex@gmail.com',[Validators.required])
 } )
 Contact()
 {
   this.homecontact.createContact(this.createcontactForm.value);
   //console.log(this.createcontactForm.value);
+  this.createcontactForm.reset();
+  
 }
 
 

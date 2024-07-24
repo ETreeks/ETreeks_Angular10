@@ -3,7 +3,8 @@
     data-sidebar-position="fixed" data-header-position="fixed">
     <div class="body-wrapper">
         <div class="container-fluid">
-            <input type="text" [(ngModel)]="_filetrText">
+            <label> <strong> search for the category Name </strong></label>
+            <input type="text" [(ngModel)]="_filetrText" class="search-input">
             <div class="col-lg-12 d-flex align-items-stretch">
           
                 <div class="card w-100">
@@ -102,7 +103,11 @@
               </mat-error>
             </mat-form-field>
             <div>
-              <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)">
+              <!-- <input type="text" matInput formControlName="imagename" [(ngModel)]="pData.imagename"> -->
+              <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)" [(ngModel)]="pData.imagename">
+            </div>
+            <div *ngIf="pData.imagename">
+                <p>Current Image: {{ pData.imagename }}</p>
             </div>
           </form>
         </mat-dialog-content>

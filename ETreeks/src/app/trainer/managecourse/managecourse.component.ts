@@ -18,6 +18,7 @@ export class ManagecourseComponent implements OnInit {
   pData :any ;
   categories: any[] = [];
   trainers: any[] = [];
+  courses: any[] = [];
   _filetrText: string ='';
   updateForm:FormGroup =new FormGroup
   ({
@@ -45,14 +46,14 @@ export class ManagecourseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mc.getAllCourses();
 
+    this.mc.getcoursesT();
     this.mc.getAllCategories().subscribe((data: any[]) => {
       this.categories = data.map(category => ({
         id: category.id,
         name: category.categoryname
       }));
-      console.log(this.categories); // Should show all three records
+      console.log(this.categories); 
     }, err => {
       console.log("Error fetching categories", err);
     });
@@ -63,7 +64,7 @@ export class ManagecourseComponent implements OnInit {
         id: tra.id,
         name: tra.username
       }));
-      console.log(this.trainers); // Should show all three records
+      console.log(this.trainers);
     }, err => {
       console.log("Error fetching trainers", err);
     });
@@ -88,8 +89,7 @@ export class ManagecourseComponent implements OnInit {
      }
      uploadImage(file:any)
      {
-       // if(file.length ==0) 
-       //   return 0 ;
+       // if(file.length ==0) return  ;
    
        let fileToUpload = <File> file[0];
        const formData = new FormData ();

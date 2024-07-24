@@ -30,7 +30,8 @@ export class DefaultComponent implements OnInit {
     this.aboutadmin2.getAboutData();
 
     
-    this.MM.getAllCourses();
+    //this.MM.getAllCourses();
+    this.MM.getAllAcceptedCourses();
     this.MM.GetAllCategories();
   }
 

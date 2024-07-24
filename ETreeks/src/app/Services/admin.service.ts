@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -7,13 +8,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AdminService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient , private toster: ToastrService)  { }
 
   private aboutSubject = new BehaviorSubject<any[]>([]);
   about$ = this.aboutSubject.asObservable();
 
 
-  numtrainers:object = [];
+  //numtrainers:object = [];
+  numtrainers: any[] = [];
   numstudents:object = [];
   numallusers:object = [];
   numadmin:object = [];
@@ -43,14 +45,16 @@ export class AdminService {
   //hits api
   getAllRegisteredTrainers()
   {
-this.http.get('https://localhost:7281/api/Admin/GetCountTrainers').subscribe(res=>
+this.http.get<any[]>('https://localhost:7281/api/Admin/GetCountTrainers').subscribe(res=>
 {
   this.numtrainers = res;
+ 
 },
 err=>{
   console.log("error");
   console.log(err.status);
   console.log(err.manage);
+ 
   })
   }
 
@@ -251,11 +255,13 @@ err=>{
     this.http.get('https://localhost:7281/api/Admin/DisplayAllUsers').subscribe(
       res => {
         this.AllUsers = res;
+        this.toster.success('retrieve All Users successfully');
       },
       err => {
         console.log("error");
         console.log(err.status);
         console.log(err.message);
+        this.toster.error('something wrong');
       }
     );
   }
@@ -265,11 +271,13 @@ err=>{
     this.http.get('https://localhost:7281/api/Admin/DisplayAllTrainers').subscribe(
       res => {
         this.viewT = res;
+        this.toster.success('Retrieve All Trainers successfully');
       },
       err => {
         console.log("error");
         console.log(err.status);
         console.log(err.message);
+        this.toster.error('something wrong');
       }
     );
   }
@@ -282,11 +290,13 @@ err=>{
     this.http.get('https://localhost:7281/api/Admin/DisplayAllStudents').subscribe(
       res => {
         this.viewS = res;
+        this.toster.success('Retrieve  All Students successfully');
       },
       err => {
         console.log("error");
         console.log(err.status);
         console.log(err.message);
+        this.toster.error('something wrong');
       }
     );
   }
@@ -296,11 +306,13 @@ err=>{
     this.http.get('https://localhost:7281/api/Contact').subscribe(
       res => {
         this.viewcontactobj = res;
+        this.toster.success('retrieve All Contacts successfully');
       },
       err => {
         console.log("error");
         console.log(err.status);
         console.log(err.message);
+        this.toster.error('something wrong');
       }
     );
   }
@@ -308,10 +320,12 @@ err=>{
 {
 this.http.delete('https://localhost:7281/api/Contact/'+id).subscribe((res:any)=>{
 console.log('Deleted');
+this.toster.success('Deleted successfully');
 window.location.reload();
 
 },err=>{
 console.log('Error');
+this.toster.error('something wrong');
 })
 }
 
@@ -331,6 +345,23 @@ console.log('Error');
 GetHome(): Observable<any> {
   return this.http.get('https://localhost:7281/api/Home/GetById/21');
 }
+// GetHome(): Observable<any> {
+//   return new Observable(observer => {
+//     this.http.get('https://localhost:7281/api/Home/GetById/21').subscribe(
+//       data => {
+//         this.toster.success('Home data retrieved successfully');
+//         observer.next(data);
+//         observer.complete();
+//       },
+//       error => {
+//         this.toster.error('Something went wrong');
+//         observer.error(error);
+//       }
+//     );
+//   });
+// }
+
+
 
 UpdateHome(body: any) {
   this.http.put('https://localhost:7281/api/Home', body).subscribe(
@@ -390,6 +421,7 @@ DeleteTestimonial(id:number)
 {
 this.http.delete('https://localhost:7281/api/Testimonial/'+id).subscribe((res:any)=>{
 console.log('Deleted');
+
 window.location.reload();
 
 },err=>{
@@ -410,6 +442,19 @@ AcceptTest(id: number) {
   );
 }
 
+
+AcceptCourse(id: number) {
+  debugger
+  this.http.put('https://localhost:7281/api/Admin/AcceptC/' + id, {}).subscribe(
+    (res: any) => {
+      console.log('Accepted');
+      window.location.reload();
+    },
+    err => {
+      console.log('Error', err);
+    }
+  );
+}
 
 
 

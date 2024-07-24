@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
 
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class MainService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient ,private toster: ToastrService) { }
   courses:any=[];
   categories:any =[];
   displayImage:any;
@@ -17,28 +18,59 @@ export class MainService {
 
 
 //hits api
-getAllCourses()
+getAllCourses() :any 
 {
 this.http.get('https://localhost:7281/api/Course').subscribe(res=>
 {
 this.courses=res; 
+this.toster.success('retrieve All Courses successfully');
 },
 err=>{
 console.log("error");
 console.log(err.status);
 console.log(err.manage);
+this.toster.error('something wrong');
 })
 }
+
+getAllAcceptedCourses():any  {
+  this.http.get<any[]>('https://localhost:7281/api/Course').subscribe(
+    res => {
+      this.courses = res.filter((course: any) => course.accepted_Status === 'Accepted');
+      this.toster.success('Retrieved all accepted courses successfully');
+    },
+    err => {
+      console.log('Error');
+      console.log(err.status);
+      console.log(err.message);
+      this.toster.error('Something went wrong');
+    });
+}
+
+getAllCourses2(): Observable<any[]> {
+  return this.http.get<any[]>('https://localhost:7281/api/Course');
+}
+getcoursesT(){
+debugger
+  const trainerId = Number(localStorage.getItem('Id'));
+  this.getAllCourses2().subscribe((courses: any[]) => {
+    this.courses = courses.filter(course => course.trainer_Id === trainerId);
+    console.log(this.courses);
+  });
+}
+
 
 DeleteCourse(id:number)
 {
   debugger
 this.http.delete('https://localhost:7281/api/Course/'+id).subscribe((res:any)=>{
 console.log('Deleted');
+this.toster.success('Course deleted  successfully');
 window.location.reload();
 
 },err=>{
 console.log('Error');
+this.toster.error('something wrong');
 })
 }
 
@@ -49,16 +81,19 @@ this.http.get<any[]>('https://localhost:7281/api/Category/GetAllCategories').sub
 {
 this.categories=res; 
 console.log(this.categories);
+this.toster.success('retrieve All Categories successfully');
 },
 err=>{
 console.log("error");
 console.log(err.status);
 console.log(err.manage);
+this.toster.error('something wrong');
 })
 }
 //
 getAllCategories(): Observable<any[]> {
   return this.http.get<any[]>('https://localhost:7281/api/category/GetAllCategories');
+  
 }
 
 
@@ -67,10 +102,12 @@ DeleteCategory(id:number)
   debugger
 this.http.delete('https://localhost:7281/api/Category/DeleteCategory/'+id).subscribe((res:any)=>{
 console.log('Deleted');
+this.toster.success('Category deleted  successfully');
 window.location.reload();
 
 },err=>{
 console.log('Error');
+this.toster.error('something wrong');
 })
 window.location.reload();
 }
@@ -92,23 +129,43 @@ CreateCategory(body: any) {
   window.location.reload();
 }
 
+// CreateCourse(body: any) {
+//   debugger
+  
+//   body.imagename=this.displayImage;
+//   this.http.post('https://localhost:7281/api/Course', body).subscribe(
+//     (resp) => {
+//       console.log("Course Created Successfully");
+//     },
+//     err => {
+//       console.log("An error occurred in the create course process", err);
+//     }
+//   );
+//   window.location.reload();
+// }
 CreateCourse(body: any) {
   debugger
-  body.imagename=this.displayImage;
+  const trainerId = Number(localStorage.getItem('Id'));
+  body.trainer_Id = trainerId; 
+  body.imagename = this.displayImage;
+
   this.http.post('https://localhost:7281/api/Course', body).subscribe(
     (resp) => {
+      this.toster.success('Course Created Successfully');
       console.log("Course Created Successfully");
+      window.location.reload(); 
     },
     err => {
+      this.toster.error('An error occurred in the update Course process');
       console.log("An error occurred in the create course process", err);
     }
   );
-  window.location.reload();
 }
 
 
 
-uploadAttachmenet(images:FormData)
+
+uploadAttachmenet(images:FormData) :any 
 {
   debugger
 this.http.post('https://localhost:7281/api/Course/UploadImage',images).subscribe((reap:any)=>{
@@ -122,13 +179,19 @@ console.log("error");
 UpdateCourse(body: any)
 {
   debugger
-  body.imagename=this.displayImage;
+  const trainerId = Number(localStorage.getItem('Id'));
+  body.trainer_Id = trainerId; 
+  body.imagename=this.displayImage || body.imagename;
     this.http.put('https://localhost:7281/api/Course', body).subscribe(
       (resp) => {
+        this.toster.info('Course Updated Successfully');
         console.log("Course Updated Successfully");
+      
       },
       err => {
+        this.toster.error('An error occurred in the update Course process');
         console.log("An error occurred in the update Course process", err);
+      
       }
     );
     window.location.reload();
@@ -138,7 +201,7 @@ UpdateCourse(body: any)
 UpdateCategory(body: any)
 {
   debugger
-  body.imagename=this.displayImage;
+  body.imagename=this.displayImage || body.imagename;
     this.http.put('https://localhost:7281/api/Category/UpdateCategory', body).subscribe(
       (resp) => {
         console.log("Category Updated Successfully");
@@ -150,15 +213,16 @@ UpdateCategory(body: any)
     window.location.reload();
 }
 
-uploadAttachmenetCat(images:FormData)
+uploadAttachmenetCat(images:FormData) :any 
 {
   debugger
 this.http.post('https://localhost:7281/api/Category/UploadCatImage',images).subscribe((reap:any)=>{
-this.displayImage = reap.imagename;
+this.displayImage = reap.imagename ;
 console.log(this.displayImage);
 },err=>{
 console.log("error");
 })
 }
+
 
 }

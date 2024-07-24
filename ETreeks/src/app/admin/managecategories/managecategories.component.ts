@@ -15,6 +15,9 @@ export class ManagecategoriesComponent implements OnInit {
   }
   pData :any ;
   _filetrText: string ='';
+
+  currentImageName: string = ''; 
+  
   @ViewChild('deleteDailog') callDeleteDailog!:TemplateRef<any>; 
   @ViewChild('updateDialog') callUpdateDailog!:TemplateRef<any>;
 
@@ -23,7 +26,7 @@ export class ManagecategoriesComponent implements OnInit {
   ({
     id : new FormControl('',),
     categoryname: new FormControl('', [Validators.required]),
-    imagename: new FormControl(''),
+    imagename: new FormControl('',[Validators.required]),
   })
   openDeleteCatDailog(id:number){
  const dailogResult=this.dialog.open(this.callDeleteDailog);
@@ -45,27 +48,61 @@ export class ManagecategoriesComponent implements OnInit {
     this.dialog.open(CreateCategoryComponent);
   }
 
-  openUpdateDailog(course :any)
-  {
-    console.log(course);
-    this.dialog.open(this.callUpdateDailog);
-    this.pData=course;
-    console.log(this.pData);
+  // openUpdateDailog(category :any)
+  // {
+  //   console.log(category);
+  //   this.dialog.open(this.callUpdateDailog);
+  //   this.pData=category;
+  //   this.currentImageName = category.imagename;
+  //   console.log(this.pData);
+    
+  //   this.updateForm.controls['id'].setValue(this.pData.id);
+  // } 
+  openUpdateDailog(category: any) {
+    this.pData = category;
+    this.currentImageName = category.imagename;
     this.updateForm.controls['id'].setValue(this.pData.id);
-  } 
-  Update()
-  {
-    this.managecat.UpdateCategory(this.updateForm.value);
+    this.updateForm.controls['categoryname'].setValue(this.pData.categoryname);
+    this.updateForm.controls['imagename'].setValue(this.currentImageName); 
+    this.dialog.open(this.callUpdateDailog);
   }
+
+  // Update()
+  // {
+  //   this.managecat.UpdateCategory(this.updateForm.value);
+    
+  // }
+  Update() {
+    const updateData = { ...this.updateForm.value };
+    if (!updateData.imagename) {
+      updateData.imagename = this.currentImageName;
+    }
+
+    this.managecat.UpdateCategory(updateData);
+  }
+  // uploadImage(file:any)
+  // {
+  //   if(file.length ==0) return  ;
+
+  //   let fileToUpload = <File> file[0];
+  //   const formData = new FormData ();
+  //   formData.append('file',fileToUpload,fileToUpload.name);
+  //   this.managecat.uploadAttachmenetCat(formData);
+
+  // }
   uploadImage(file:any)
   {
-    // if(file.length ==0) 
-    //   return 0 ;
+    if(file.length ==0) return  ;
 
     let fileToUpload = <File> file[0];
     const formData = new FormData ();
     formData.append('file',fileToUpload,fileToUpload.name);
-    this.managecat.uploadAttachmenetCat(formData);
+ 
+   this.managecat.uploadAttachmenetCat(formData).subscribe((response: any) => {
+    this.currentImageName = response.imagename;
+    this.updateForm.controls['imagename'].setValue(this.currentImageName);
+     
 
-  }
+  });
+}
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/Services/admin.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class EditaboutComponent implements OnInit {
     this.loadAboutData();
   }
 
-  constructor(public editAbout: AdminService) {}
+  constructor(public editAbout: AdminService ,private toster : ToastrService) {}
 
   loadAboutData() {
     this.editAbout.GetAbout().subscribe(
@@ -37,9 +38,11 @@ export class EditaboutComponent implements OnInit {
         this.title3 = data.title3;
         this.title4 = data.title4;
         this.description = data.description;
+        this.toster.success('About data retrieved successfully');
       },
       err => {
         console.log("Error occurred while fetching home data", err);
+        this.toster.error('Error occurred while fetching about data');
       }
     );
   }
@@ -55,6 +58,7 @@ export class EditaboutComponent implements OnInit {
     };
 
     this.editAbout.UpdateAbout(updatedAbout);
+    this.toster.info('about data updated successfully');
   }
 
 }

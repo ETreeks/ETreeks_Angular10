@@ -31,7 +31,7 @@ ngOnInit(): void {
       id: category.id,
       name: category.categoryname
     }));
-    console.log(this.categories); // Should show all three records
+    console.log(this.categories); 
   }, err => {
     console.log("Error fetching categories", err);
   });
@@ -42,8 +42,7 @@ ngOnInit(): void {
 
 uploadImage(file:any)
 {
-  // if(file.length ==0) 
-  //   return 0 ;
+   if(file.length ==0) return ;
 
   let fileToUpload = <File> file[0];
   const formData = new FormData ();

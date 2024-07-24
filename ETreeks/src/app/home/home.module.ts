@@ -9,6 +9,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SharedModule } from '../shared/shared.module';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
+import { CourseComponent } from './course/course.component';
 
 
 
@@ -20,6 +21,7 @@ import { CategoryCardComponent } from './category-card/category-card.component';
     TestimonialComponent,
     CourseCardComponent,
     CategoryCardComponent,
+    CourseComponent,
   ],
   imports: [
     CommonModule,

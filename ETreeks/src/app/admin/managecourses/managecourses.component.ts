@@ -19,6 +19,7 @@ export class ManagecoursesComponent implements OnInit {
   categories: any[] = [];
   trainers: any[] = [];
   _filetrText: string ='';
+  currentImageName: string = ''; 
   updateForm:FormGroup =new FormGroup
   ({
     id : new FormControl('',),
@@ -31,13 +32,25 @@ export class ManagecoursesComponent implements OnInit {
     passmark : new FormControl(''),
   })
   @ViewChild('updateDialog') callUpdateDailog!:TemplateRef<any>;
-  openUpdateDailog(course :any)
-  {
-    console.log(course);
-    this.dialog.open(this.callUpdateDailog);
-    this.pData=course;
-    console.log(this.pData);
+  // openUpdateDailog(course :any)
+  // {
+  //   console.log(course);
+  //   this.dialog.open(this.callUpdateDailog);
+  //   this.pData=course;
+  //   console.log(this.pData);
+  //   this.updateForm.controls['id'].setValue(this.pData.id);
+  // }
+  openUpdateDailog(course: any) {
+    this.pData = course;
+    this.currentImageName = course.imagename;
     this.updateForm.controls['id'].setValue(this.pData.id);
+    this.updateForm.controls['name'].setValue(this.pData.name);
+    this.updateForm.controls['price'].setValue(this.pData.price);
+    this.updateForm.controls['category_Id'].setValue(this.pData.category_Id);
+    this.updateForm.controls['trainer_Id'].setValue(this.pData.trainer_Id);
+    this.updateForm.controls['passmark'].setValue(this.pData.passmark);
+    this.updateForm.controls['imagename'].setValue(this.currentImageName);
+    this.dialog.open(this.callUpdateDailog);
   } 
 
   openCreateCourseDailog() {
@@ -52,7 +65,7 @@ export class ManagecoursesComponent implements OnInit {
         id: category.id,
         name: category.categoryname
       }));
-      console.log(this.categories); // Should show all three records
+      console.log(this.categories); 
     }, err => {
       console.log("Error fetching categories", err);
     });
@@ -63,11 +76,14 @@ export class ManagecoursesComponent implements OnInit {
         id: tra.id,
         name: tra.username
       }));
-      console.log(this.trainers); // Should show all three records
+      console.log(this.trainers); 
     }, err => {
       console.log("Error fetching trainers", err);
     });
 
+
+
+  
   }
 
   openDeleteDailog(id:number){
@@ -82,22 +98,47 @@ export class ManagecoursesComponent implements OnInit {
     })
      }
 
-     Update()
-     {
-       this.mc.UpdateCourse(this.updateForm.value);
-     }
-     uploadImage(file:any)
-     {
-       // if(file.length ==0) 
-       //   return 0 ;
+    //  Update()
+    //  {
+    //    this.mc.UpdateCourse(this.updateForm.value);
+    //  }
+     Update() {
+      const updateData = { ...this.updateForm.value };
+      if (!updateData.imagename) {
+        updateData.imagename = this.currentImageName;
+      }
+  
+      this.mc.UpdateCourse(updateData);
+    }
+    //  uploadImage(file:any)
+    //  {
+    //     if(file.length ==0)   return  ;
    
-       let fileToUpload = <File> file[0];
-       const formData = new FormData ();
-       formData.append('file',fileToUpload,fileToUpload.name);
-       this.mc.uploadAttachmenet(formData);
+    //    let fileToUpload = <File> file[0];
+    //    const formData = new FormData ();
+    //    formData.append('file',fileToUpload,fileToUpload.name);
+    //    this.mc.uploadAttachmenet(formData);
    
-     }
+    //  }
+    uploadImage(file:any)
+    {
+      if(file.length ==0) return  ;
+  
+      let fileToUpload = <File> file[0];
+      const formData = new FormData ();
+      formData.append('file',fileToUpload,fileToUpload.name);
+   
+     this.mc.uploadAttachmenetCat(formData).subscribe((response: any) => {
+      this.currentImageName = response.imagename;
+      this.updateForm.controls['imagename'].setValue(this.currentImageName);
+       
+  
+    });
+  }
      
-
+  AcceptCourse(id :number)
+    {
+    this.A.AcceptCourse(id);
+    }
 }
 

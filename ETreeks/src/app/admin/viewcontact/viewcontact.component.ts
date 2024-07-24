@@ -29,6 +29,7 @@ export class ViewcontactComponent implements OnInit {
 
   ngOnInit(): void {
    this.admincontact.DisplayAllContacts();
+   
   }
 
 }

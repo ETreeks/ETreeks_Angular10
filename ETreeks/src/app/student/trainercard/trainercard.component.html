@@ -1,0 +1,18 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{Tobject.fname + ' '+ Tobject.lname }} </mat-card-title>
+        <!-- <mat-card-subtitle>{{Tobject.email}}</mat-card-subtitle> -->
+
+        <mat-card-subtitle>{{ Tobject.email || 'Email not found' }}</mat-card-subtitle>
+
+         <img mat-card-sm-image src="../../../assets/Images/616a5e0d-0b43-4479-af10-c374f35f10cd_free-nature-images.jpg" >
+        <!-- <img class="img-fluid" src="../../../assets/Images/{{Tobject.imagename}}" alt=""> -->
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-actions>
+      <!-- <button mat-button (click)="viewCourses(Tobject.id)">View Courses</button> -->
+      <button mat-button (click)="viewCourses()">View Courses</button>
+      
+    </mat-card-actions>
+  </mat-card>

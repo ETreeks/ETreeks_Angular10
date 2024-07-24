@@ -10,6 +10,8 @@ import { ViewprofilestdComponent } from './viewprofilestd/viewprofilestd.compone
 import { EditprofilestdComponent } from './editprofilestd/editprofilestd.component';
 import { DeleteprofilestdComponent } from './deleteprofilestd/deleteprofilestd.component';
 import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessioncourse.component';
+import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercourses.component';
+import { PaymentformComponent } from './paymentform/paymentform.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,14 @@ const routes: Routes = [
   {
     path:'searchsessioncourse',
     component:SearchsessioncourseComponent
+  }
+  , {
+    path:'viewtrainercourses',
+    component:ViewtrainercoursesComponent
+  }
+  ,{
+    path:'paymentform',
+    component:PaymentformComponent
   }
 ];
 

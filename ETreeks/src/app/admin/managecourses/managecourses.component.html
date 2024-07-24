@@ -3,11 +3,10 @@
 data-sidebar-position="fixed" data-header-position="fixed">
 <div class="body-wrapper">
     <div class="container-fluid">
-      <!-- <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button> -->
-      <input type="text" [(ngModel)]="_filetrText">
+      <label> <strong> Search for the course name</strong></label>
+      <input  type="text" [(ngModel)]="_filetrText" class="search-input">
         <div class="col-lg-8 d-flex align-items-stretch">
             <div class="card w-100">
-              <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button>
               <div class="card-body p-6">
                 <h5 class="card-title fw-semibold mb-6">All Courses</h5>
                 <div class="table-responsive">
@@ -73,12 +72,25 @@ data-sidebar-position="fixed" data-header-position="fixed">
                           </td>
                 
 
-                            <td>
+                            <!-- <td>
                             <button class="btn-danger" (click)="openDeleteDailog(course.id)"> Delete </button>
                             </td>  
                             <td>
                               <button  class="btn-primary" (click)="openUpdateDailog(course)"> Update </button>
-                            </td>
+                            </td> -->
+                            <!-- <td>
+                              <button class="btn-primary" (click)="AcceptCourse(course.id)"> Accept </button>
+                              </td> -->
+                              <td>
+                                <button class="btn" 
+                                        (click)="AcceptCourse(course.id)" 
+                                        [disabled]="course.accepted_Status === 'Accepted'"
+                                        [ngClass]="{'accepted-button': course.accepted_Status === 'Accepted'}"
+                                        [ngClass]="{'pending-button': course.accepted_Status === 'Pending'}"> 
+                                  Accept 
+                                </button>
+                              </td>
+                              
                       </tr>
                       
                     </tbody>
@@ -90,7 +102,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
     </div>
 </div>
 
-<ng-template #deleteDailog>          
+<!-- <ng-template #deleteDailog>          
   <h1 mat-dialog-title>Delete course</h1>
   <div mat-dialog-content>
     Would you like to delete this course?
@@ -146,27 +158,15 @@ data-sidebar-position="fixed" data-header-position="fixed">
       <button mat-button mat-dialog-close>Cancel</button>
       <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="Update()">Update</button>
     </mat-dialog-actions>
-  </ng-template>
-  
+  </ng-template> -->
+
+
+
 
   
 
+  
 
-<style>
-  .table {
-      width: 100%; 
-      font-size: 1.2rem; 
-  }
-
-  .table-responsive {
-      overflow-x: auto;
-  }
-
-  .card {
-      padding: 20px; 
-      border-radius: 0.5rem; 
-  }
-</style>
 
 
 

@@ -17,21 +17,21 @@ export class CreateCourseComponent implements OnInit {
 
   createcourseForm:FormGroup = new FormGroup({ 
     name:new FormControl('',[Validators.required]),
-    imagename:new FormControl(''),
-    price:new FormControl(''),
-    passmark:new FormControl(''),
-    category_Id:new FormControl(''),
-    trainer_Id:new FormControl(''),
+    imagename:new FormControl('',[Validators.required]),
+    price:new FormControl('',[Validators.required]),
+    passmark:new FormControl('',[Validators.required]),
+    category_Id:new FormControl('',[Validators.required]),
+    trainer_Id:new FormControl('',[Validators.required]),
    
 }  
 )
 ngOnInit(): void {
   this.m.getAllCategories().subscribe((data: any[]) => {
     this.categories = data.map(category => ({
-      id: category.id,
-      name: category.categoryname
+      id10: category.id,
+      name10: category.categoryname
     }));
-    console.log(this.categories); // Should show all three records
+    console.log(this.categories); 
   }, err => {
     console.log("Error fetching categories", err);
   });
@@ -39,10 +39,10 @@ ngOnInit(): void {
 
   this.A.displayAllTrainers().subscribe((data: any[]) => {
     this.trainers = data.map(tra => ({
-      id: tra.id,
-      name: tra.username
+      id10: tra.id,
+      name10: tra.username
     }));
-    console.log(this.trainers); // Should show all three records
+    console.log(this.trainers); 
   }, err => {
     console.log("Error fetching trainers", err);
   });
@@ -51,8 +51,7 @@ ngOnInit(): void {
 
 uploadImage(file:any)
 {
-  // if(file.length ==0) 
-  //   return 0 ;
+  if(file.length ==0) return;
 
   let fileToUpload = <File> file[0];
   const formData = new FormData ();

@@ -26,7 +26,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
                 <input type="password" class="form-control" id="password"  name="password" [formControl]="password">
               
                 <span class="text-danger" *ngIf="password.hasError('required')">Password is required</span>
-                <span class="text-danger" *ngIf="password.hasError('minlength')">Please enter a strong password</span>
+                <!-- <span class="text-danger" *ngIf="password.hasError('minlength')">Please enter a strong password</span> -->
              
               </div>
               <div class="d-flex align-items-center justify-content-between mb-4">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/Services/admin.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { AdminService } from 'src/app/Services/admin.service';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  constructor(public admin:AdminService){ 
+  constructor(public admin:AdminService ,private toster : ToastrService){ 
   }
   ngOnInit(): void {
     this.admin.getAllRegisteredTrainers();
@@ -24,6 +25,8 @@ export class StatisticsComponent implements OnInit {
     this.admin.getStudentsPerTrainer();
     this.admin.GetCountPendingReservation();
     this.admin.GetCountAcceptedReservation();
+    this.toster.success('statistics data retrieved successfully');
   }
+  
 
 }

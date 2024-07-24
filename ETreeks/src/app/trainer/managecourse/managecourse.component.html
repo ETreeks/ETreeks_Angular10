@@ -5,7 +5,8 @@ data-sidebar-position="fixed" data-header-position="fixed">
 <div class="body-wrapper">
     <div class="container-fluid">
       <!-- <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button> -->
-      <input type="text" [(ngModel)]="_filetrText">
+      <label> <strong> Search for the course name</strong></label>
+      <input type="text" [(ngModel)]="_filetrText" class="search-input">
         <div class="col-lg-8 d-flex align-items-stretch">
             <div class="card w-100">
               <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button>
@@ -73,13 +74,13 @@ data-sidebar-position="fixed" data-header-position="fixed">
                             <p class="mb-0 fw-normal">{{course.createddate | date:'shortDate'}}</p>
                           </td>
                 
-
+                          <td>
+                            <button  class="btn-primary" (click)="openUpdateDailog(course)"> Update </button>
+                          </td>
                             <td>
                             <button class="btn-danger" (click)="openDeleteDailog(course.id)"> Delete </button>
                             </td>  
-                            <td>
-                              <button  class="btn-primary" (click)="openUpdateDailog(course)"> Update </button>
-                            </td>
+                          
                       </tr>
                       
                     </tbody>
@@ -130,14 +131,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Trainer</mat-label>
-          <mat-select formControlName="trainer_Id" [(ngModel)]="pData.trainer_Id">
-            <mat-option *ngFor="let tra of trainers" [value]="tra.id">
-              {{ tra.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+
         <div>
           <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)">
         </div>

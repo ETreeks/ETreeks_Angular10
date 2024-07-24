@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdminService } from 'src/app/Services/admin.service';
+//import { AdminService } from 'src/app/Services/admin.service';
 import { MainService } from 'src/app/Services/main.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class CreateCategoryComponent {
   constructor(public m:MainService){}
   createCatForm:FormGroup = new FormGroup({ 
     categoryname:new FormControl('',[Validators.required]),
-    imagename:new FormControl(''),
+    imagename:new FormControl('',[Validators.required]),
 
   
   }
@@ -22,8 +22,7 @@ export class CreateCategoryComponent {
 
 uploadImage(file:any)
 {
-  // if(file.length ==0) 
-  //   return 0 ;
+   if(file.length ==0)  return;
 
   let fileToUpload = <File> file[0];
   const formData = new FormData ();

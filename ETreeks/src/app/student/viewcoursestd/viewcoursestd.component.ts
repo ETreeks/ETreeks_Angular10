@@ -10,7 +10,7 @@ export class ViewcoursestdComponent  implements OnInit{
 
   constructor(public m : MainService){}
   ngOnInit(): void {
-    this.m.getAllCourses();
+    this.m.getAllAcceptedCourses();
   }
 
 }
