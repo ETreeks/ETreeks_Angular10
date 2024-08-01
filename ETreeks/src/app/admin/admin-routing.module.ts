@@ -14,6 +14,7 @@ import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { SearchdatesComponent } from './searchdates/searchdates.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 import { ReportComponent } from './report/report.component';
+import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path:'report',
     component:ReportComponent
+  } ,
+  {
+    path:'chart',
+    component:ChartComponent
   }
 
 ];

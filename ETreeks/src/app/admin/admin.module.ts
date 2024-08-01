@@ -20,6 +20,7 @@ import { SearchdatesComponent } from './searchdates/searchdates.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 import { ReportComponent } from './report/report.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
@@ -40,12 +41,17 @@ import { ReportComponent } from './report/report.component';
     CreateCourseComponent,
     SearchdatesComponent,
     ManagetestimonialsComponent,
-    ReportComponent
+    ReportComponent,
+    ChartComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    
+  ],
+  exports: [
+    ChartComponent
   ]
 })
 export class AdminModule { }
