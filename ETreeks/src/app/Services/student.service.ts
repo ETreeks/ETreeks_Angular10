@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,8 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient , private toster:ToastrService) { }
   notif:any=[];
+  courses:any=[];
 
   CreateBooking(courseId: number, userId: number): void {
     debugger
@@ -55,6 +57,34 @@ console.log('get');
 },err=>{
 console.log('Error');})
 }
+
+
+// createReview(review: any): Observable<any> {
+//   return this.http.post('https://localhost:7281/api/Review', review);
+// }
+createReview(body: any) {
+  debugger
+  const userId = Number(localStorage.getItem('Id'));
+  body.guser_Id = userId; 
+
+  this.http.post('https://localhost:7281/api/Review', body).subscribe(
+    (resp) => {
+      this.toster.success('Review Created Successfully');
+      console.log("Review Created Successfully");
+      window.location.reload(); 
+    },
+    err => {
+      this.toster.error('An error occurred in the create Review process');
+      console.log("An error occurred in the create Review process", err);
+    }
+  );
+}
+
+
+getAllCourses(): Observable<any[]> {
+  return this.http.get<any[]>('https://localhost:7281/api/Course');
+}
+
 } 
 
 

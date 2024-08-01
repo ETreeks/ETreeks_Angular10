@@ -12,6 +12,7 @@ import { DeleteprofilestdComponent } from './deleteprofilestd/deleteprofilestd.c
 import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessioncourse.component';
 import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercourses.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
+import { MycoursesComponent } from './mycourses/mycourses.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,9 @@ const routes: Routes = [
   ,{
     path:'paymentform',
     component:PaymentformComponent
+  } ,{
+    path:'mycourses',
+    component:MycoursesComponent
   }
 ];
 

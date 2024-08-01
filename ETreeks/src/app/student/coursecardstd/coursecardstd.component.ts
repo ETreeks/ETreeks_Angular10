@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MainService } from 'src/app/Services/main.service';
 import { StudentService } from 'src/app/Services/student.service';
+import { CreatereviewComponent } from '../createreview/createreview.component';
 
 @Component({
   selector: 'app-coursecardstd',
@@ -43,5 +44,30 @@ export class CoursecardstdComponent implements OnInit {
      }
     })
      }
+
+     openReviewDialog(courseId: number, userId: number)
+     {
+       this.dialog.open(CreatereviewComponent);
+     }
+
+
+
+     
+
+//      openReviewDialog(): void {
+//       const courseId = this.course?.id;
+//       if (courseId !== undefined) {
+//         const dialogRef = this.dialog.open(CreatereviewComponent, {
+//           width: '250px',
+//           data: { courseId: courseId }
+//         });
    
+//       dialogRef.afterClosed().subscribe(result => {
+//          console.log('The dialog was closed');
+//       });
+//     } else {
+//       console.error('Course ID is undefined');
+//      }
+// }
+
 }

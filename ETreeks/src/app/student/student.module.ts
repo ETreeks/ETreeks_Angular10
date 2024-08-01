@@ -19,6 +19,8 @@ import { SearchlocationComponent } from './searchlocation/searchlocation.compone
 import { TrainercardComponent } from './trainercard/trainercard.component';
 import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercourses.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
+import { MycoursesComponent } from './mycourses/mycourses.component';
+import { CreatereviewComponent } from './createreview/createreview.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { PaymentformComponent } from './paymentform/paymentform.component';
     SearchlocationComponent,
     TrainercardComponent,
     ViewtrainercoursesComponent,
-    PaymentformComponent
+    PaymentformComponent,
+    MycoursesComponent,
+    CreatereviewComponent
   ],
   imports: [
     CommonModule,

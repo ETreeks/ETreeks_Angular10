@@ -157,7 +157,7 @@ CreateCourse(body: any) {
       window.location.reload(); 
     },
     err => {
-      this.toster.error('An error occurred in the update Course process');
+      this.toster.error('An error occurred in the Create Course process');
       console.log("An error occurred in the create course process", err);
     }
   );
