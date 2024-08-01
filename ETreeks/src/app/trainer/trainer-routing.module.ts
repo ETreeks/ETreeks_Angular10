@@ -48,6 +48,7 @@ const routes: Routes = [
     path:'deleteprofile',
     component:DeleteprofileComponent
   }
+  ,
 ];
 
 @NgModule({

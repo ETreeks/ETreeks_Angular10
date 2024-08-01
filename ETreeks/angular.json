@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
@@ -38,7 +39,7 @@
             ],
             "scripts": [
    
-
+            
               "src/assets/AdminTemp/libs/jquery/dist/jquery.min.js",
               "src/assets/AdminTemp/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/AdminTemp/js/sidebarmenu.js",

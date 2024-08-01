@@ -62,8 +62,8 @@ export class ManagecategoriesComponent implements OnInit {
     this.pData = category;
     this.currentImageName = category.imagename;
     this.updateForm.controls['id'].setValue(this.pData.id);
-    this.updateForm.controls['categoryname'].setValue(this.pData.categoryname);
-    this.updateForm.controls['imagename'].setValue(this.currentImageName); 
+    // this.updateForm.controls['categoryname'].setValue(this.pData.categoryname);
+    // this.updateForm.controls['imagename'].setValue(this.currentImageName); 
     this.dialog.open(this.callUpdateDailog);
   }
 

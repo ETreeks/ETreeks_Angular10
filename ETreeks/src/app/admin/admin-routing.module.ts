@@ -13,6 +13,7 @@ import { EditaboutComponent } from './editabout/editabout.component';
 import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { SearchdatesComponent } from './searchdates/searchdates.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   {
@@ -67,7 +68,11 @@ const routes: Routes = [
     path:'testimonial',
     component:ManagetestimonialsComponent
   }
-
+  ,
+  {
+    path:'report',
+    component:ReportComponent
+  }
 
 ];
 

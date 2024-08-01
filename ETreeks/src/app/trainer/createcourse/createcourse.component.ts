@@ -14,13 +14,14 @@ export class CreatecourseComponent  implements OnInit {
   
   categories: any[] = [];
   trainers: any[] = [];
+  
 
   createcourseForm:FormGroup = new FormGroup({ 
     name:new FormControl('',[Validators.required]),
-    imagename:new FormControl(''),
-    price:new FormControl(''),
-    passmark:new FormControl(''),
-    category_Id:new FormControl(''),
+    imagename:new FormControl('',[Validators.required]),
+    price:new FormControl('',[Validators.required]),
+    passmark:new FormControl('',[Validators.required]),
+    category_Id:new FormControl('',[Validators.required]),
     trainer_Id:new FormControl(''),
    
 }  

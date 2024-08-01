@@ -13,6 +13,12 @@ export class TrainerService {
     debugger
     return this.http.get<TrainerSearch[]>(`https://localhost:7281/api/Trainer/Search/${startDate}/${endDate}`);
   }
+  
+  getallreservationT(): Observable<TrainerSearch[]> {
+    debugger
+    const trainerId = Number(localStorage.getItem('Id'));
+    return this.http.get<TrainerSearch[]>(`https://localhost:7281/api/Trainer/GetAllReservationT/`+trainerId);
+  }
 
 }
 

@@ -15,6 +15,7 @@ import { CategorysearchPipe } from '../Pipes/categorysearch.pipe';
 import { StudentnavbarComponent } from './studentnavbar/studentnavbar.component';
 import { TrainernavbarComponent } from './trainernavbar/trainernavbar.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatCardModule} from '@angular/material/card';
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
     
   ],
   exports:[
@@ -53,7 +55,8 @@ import {MatCardModule} from '@angular/material/card';
     CoursesearchPipe,
     CategorysearchPipe,
     StudentnavbarComponent,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
     
   
   ]

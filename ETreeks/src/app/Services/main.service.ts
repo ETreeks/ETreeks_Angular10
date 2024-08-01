@@ -56,6 +56,7 @@ debugger
   this.getAllCourses2().subscribe((courses: any[]) => {
     this.courses = courses.filter(course => course.trainer_Id === trainerId);
     console.log(this.courses);
+  
   });
 }
 

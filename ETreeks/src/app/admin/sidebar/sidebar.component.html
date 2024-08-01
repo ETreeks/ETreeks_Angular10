@@ -132,8 +132,8 @@
             <span class="hide-menu">Charts</span>
           </a>
         </li>
-         <li class="sidebar-item">
-           <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+        <li class="sidebar-item">
+          <a class="sidebar-link" routerLink="/admin/report" aria-expanded="false">
              <span>
                <i class="ti ti-cards"></i>
              </span>
@@ -170,13 +170,14 @@
         </li>
         
 
-         <li class="sidebar-item">
-          <a class="sidebar-link" routerLink="/admin/profile" aria-expanded="false">
+        <li class="sidebar-item">
+          <span class="sidebar-link" aria-expanded="false">
             <span>
               <i class="ti ti-user-circle"></i>
             </span>
-            <span class="hide-menu">My Profile</span>
-          </a>
+
+            <span class="hide-menu " (click)="logout()"  >Logout</span>
+          </span>
         </li>
 
        </ul>

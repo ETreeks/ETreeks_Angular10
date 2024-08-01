@@ -20,12 +20,12 @@ export class ManagecourseComponent implements OnInit {
   trainers: any[] = [];
   courses: any[] = [];
   _filetrText: string ='';
+  currentImageName: string = ''; 
   updateForm:FormGroup =new FormGroup
   ({
     id : new FormControl('',),
     name: new FormControl('', [Validators.required]),
     imagename: new FormControl(''),
-    // categoryid: new FormControl(''),
     price : new FormControl(''),
     category_Id: new FormControl(''),
     trainer_Id : new FormControl(''),
@@ -38,6 +38,8 @@ export class ManagecourseComponent implements OnInit {
     this.dialog.open(this.callUpdateDailog);
     this.pData=course;
     console.log(this.pData);
+      
+      this.currentImageName = course.imagename;
     this.updateForm.controls['id'].setValue(this.pData.id);
   } 
 
@@ -85,11 +87,17 @@ export class ManagecourseComponent implements OnInit {
 
      Update()
      {
-       this.mc.UpdateCourse(this.updateForm.value);
+      //  this.mc.UpdateCourse(this.updateForm.value);
+      const updateData = { ...this.updateForm.value };
+      if (!updateData.imagename) {
+        updateData.imagename = this.currentImageName;
+      }
+  
+      this.mc.UpdateCourse(updateData);
      }
      uploadImage(file:any)
      {
-       // if(file.length ==0) return  ;
+        if(file.length ==0) return  ;
    
        let fileToUpload = <File> file[0];
        const formData = new FormData ();

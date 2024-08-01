@@ -456,7 +456,17 @@ AcceptCourse(id: number) {
   );
 }
 
-
+getallreservation(): Observable<AdminSearch[]> {
+  debugger
+  return this.http.get<AdminSearch[]>(`https://localhost:7281/api/admin/GetAllReservation`);
+}
 
 }
+
+export interface AdminSearch {
+  fullName: string;
+  courseName: string;
+  categoryname: string;
+  reservationdate: Date;
+  }
 

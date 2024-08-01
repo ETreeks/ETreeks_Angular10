@@ -19,6 +19,7 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
 import { SearchdatesComponent } from './searchdates/searchdates.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ManagetestimonialsComponent } from './managetestimonials/managetestimon
     CreateCategoryComponent,
     CreateCourseComponent,
     SearchdatesComponent,
-    ManagetestimonialsComponent
+    ManagetestimonialsComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,

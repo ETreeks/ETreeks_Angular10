@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class StudentService {
 
   constructor(private http:HttpClient) { }
-
+  notif:any=[];
 
   CreateBooking(courseId: number, userId: number): void {
     debugger
@@ -39,8 +39,24 @@ export class StudentService {
     debugger
     return this.http.get<SessionDTO[]>(`https://localhost:7281/api/Student/GetTrainerSessionsByUsername/${username}`);
   }
-  
+  getNotifications(userId: number): Observable<any> {
+    return this.http.get<any>(`https://localhost:7281/api/Student/notifications/${userId}`);
+    
+  }
+getNotifications2(id:number)
+{
+debugger
+this.http.get('https://localhost:7281/api/Student/notifications/'+id).subscribe((res:any)=>{
+this.notif=res; 
+console.log('get');
+
+
+
+},err=>{
+console.log('Error');})
 }
+} 
+
 
 
 export interface SessionDTO {
