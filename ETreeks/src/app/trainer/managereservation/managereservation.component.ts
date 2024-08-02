@@ -17,28 +17,27 @@ import { forkJoin } from 'rxjs';
   templateUrl: './managereservation.component.html',
   styleUrls: ['./managereservation.component.css']
 })
-export class ManagereservationComponent {
+export class ManagereservationComponent implements OnInit {
  
   reservations: Reservation[] = [];
   courses: Course[] = [];
   gusers: Guser[] = [];
-  trainerId: number = 10;
+  //trainerId: number = 10;
+  trainerId: number = Number(localStorage.getItem('Id'));;
+  
  
   constructor(private TrainerService: TrainerService) {}
- 
   ngOnInit(): void {
     this.loadReservations();
- 
   }
- 
- 
+
   loadReservations(): void {
     forkJoin([
       this.TrainerService.getAllReservations(),
       this.TrainerService.GetAllCourses(),
       this.TrainerService.getAllUsers()
     ]).subscribe(([reservations, courses, gusers]) => {
-      this.reservations = reservations.filter(reservation => reservation.gusers_Id === this.trainerId);
+      this.reservations = reservations.filter(reservation => reservation.course_Id === this.trainerId);
       this.courses = courses;
       this.gusers = gusers;
  

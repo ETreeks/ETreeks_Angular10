@@ -21,6 +21,7 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
+import { ChartDComponent } from './chart-d/chart-d.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ChartComponent } from './chart/chart.component';
     SearchdatesComponent,
     ManagetestimonialsComponent,
     ReportComponent,
-    ChartComponent
+    ChartComponent,
+    ChartDComponent
   ],
   imports: [
     CommonModule,

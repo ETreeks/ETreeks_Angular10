@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 //import { CoursesearchPipe } from './Pipes/coursesearch.pipe';
 //import { CategorysearchPipe } from './Pipes/categorysearch.pipe';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+import { StudentModule } from './student/student.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
   
     SharedModule ,
     ToastrModule.forRoot(),
-    ToastNoAnimationModule.forRoot()
+    ToastNoAnimationModule.forRoot() ,
+
+    StudentModule  // i add it because when i click on view course  
 
   
   ],

@@ -85,12 +85,13 @@
                      <label for="endDate">End Date:</label>
                      <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" class="form-control mb-3">
  
-                     <button type="submit" class="btn btn-primary">Search</button>
-                     <button type="button" (click)="clearForm()" class="btn btn-secondary">Clear</button>
-                     <button type="button" class="btn btn-primary mt-4" (click)="generatePdf()">Generate Report</button>
+                     <button type="submit" class="btn btn-primary btn-space">Search</button>
+                     <button type="button" (click)="clearForm()" class="btn btn-secondary btn-space">Clear</button>
+                     <br>
+                     <button type="button" class="btn btn-primary mt-4 btn-space" (click)="generatePdf()">Generate Report</button>
                  </form>
              </div>
- 
+ <hr>
              <div class="col-lg-12 d-flex align-items-stretch">
                  <div class="card w-100">
                      <div class="card-body p-6">

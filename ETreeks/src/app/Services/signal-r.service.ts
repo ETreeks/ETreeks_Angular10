@@ -121,7 +121,7 @@ export class SignalRService {
       //   duration: 8000,
       // });
       this.snackBar.open(`Notification: ${message}`, 'Close', {
-        duration: 8000,
+        //duration: 23000,
         verticalPosition: 'top', 
         horizontalPosition: 'center' 
       });
