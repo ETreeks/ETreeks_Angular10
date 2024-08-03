@@ -1,0 +1,41 @@
+<app-sidebartrainer></app-sidebartrainer>
+ 
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <div class="container-fluid">
+      <h2>Pending Reservation</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Course Name</th>
+            <th>Student Name</th>
+            <th>Actions</th>
+          </tr>
+         
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of reservations">
+            <td>{{reservation.id}}</td>
+            <td>{{reservation.reservationstatus}}</td>
+            <td>{{ reservation.reservationdate | date: 'shortDate' }}</td>
+            <td>{{reservation.courses.name}}</td> 
+            <td>{{reservation.gusers.fname}} {{reservation.gusers.lname}}</td> 
+            <td>
+              <button (click)="acceptReservation(reservation.id)">Accept</button>
+              <button (click)="rejectReservation(reservation.id)">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+ 
+ 
+ 
+</div>
+</div>
+</div>
+ 
