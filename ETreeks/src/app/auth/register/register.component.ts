@@ -25,9 +25,7 @@ export class RegisterComponent {
 
 uploadImage(file:any)
   {
-    // if(file.length ==0) 
-    //   return 0 ;
-
+    if(file.length ==0)  return  ;
     let fileToUpload = <File> file[0];
     const formData = new FormData ();
     formData.append('file',fileToUpload,fileToUpload.name);
@@ -50,8 +48,9 @@ uploadImage(file:any)
       misMatch:true // Custom Validation 
     }
   );
-  
-  
+
   }
+
+  
 
 }

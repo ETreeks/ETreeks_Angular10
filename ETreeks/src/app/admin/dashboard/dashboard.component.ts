@@ -12,5 +12,7 @@ export class DashboardComponent  implements OnInit{
   ngOnInit(): void {
     this.admin.getAllRegisteredTrainers();
     this.admin.getAllRegisteredStudents();
+    this.admin.GetCountAcceptedTrainers();
+    this.admin.getCountPendingTrainers();
   }
 }

@@ -14,27 +14,22 @@ data-sidebar-position="fixed" data-header-position="fixed">
                 <form (ngSubmit)="onSubmit()">
               <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <!-- <input type="email" class="form-control"  aria-describedby="emailHelp"
-                 type="text" id="username" [(ngModel)]="username" name="username" [formControl]="username"> -->
+
                  <input type="email" class="form-control"  aria-describedby="emailHelp"
                  type="text" id="username"  name="username" [formControl]="username">
                  <span class="text-danger" *ngIf="username.hasError('required')">Your Username is required</span>
                 </div>
               <div class="mb-4">
                 <label for="password" class="form-label">Password</label>
-                <!-- <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" [formControl]="password"> -->
+
                 <input type="password" class="form-control" id="password"  name="password" [formControl]="password">
               
                 <span class="text-danger" *ngIf="password.hasError('required')">Password is required</span>
-                <!-- <span class="text-danger" *ngIf="password.hasError('minlength')">Please enter a strong password</span> -->
-             
+
               </div>
               <div class="d-flex align-items-center justify-content-between mb-4">
                 <div class="form-check">
-                  <!-- <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked> -->
-                  <!-- <label class="form-check-label text-dark" for="flexCheckChecked">
-                    Remeber this Device
-                  </label> -->
+            
                   <label>
                     <input class="form-check-label text-dark" 
                       type="checkbox"  [(ngModel)]="rememberMe"  
@@ -44,10 +39,12 @@ data-sidebar-position="fixed" data-header-position="fixed">
                 </div>
                 <a class="text-primary fw-bold" >Forgot Password ?</a>
               </div>
-              <!-- <a  class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a> -->
-              <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" (click)="submit()">Login</button>
+ 
+              <button type="submit" 
+              class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" 
+              (click)="submit()">Login</button>
               <div class="d-flex align-items-center justify-content-center">
-                <!-- <p class="fs-4 mb-0 fw-bold">New to Modernize?</p> -->
+              
                 <a class="text-primary fw-bold ms-2" routerLink= "/auth/register">Create an account for coach</a>
               </div>
               <div class="d-flex align-items-center justify-content-center">
@@ -56,6 +53,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
               <div class="d-flex align-items-center justify-content-center">
                 <a class="text-primary fw-bold ms-2" routerLink= "">Go back</a>
               </div>
+              
             </form>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/Services/home.service';
 import { MainService } from 'src/app/Services/main.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { MainService } from 'src/app/Services/main.service';
 })
 export class CourseComponent implements OnInit {
 
-  constructor(public MM:MainService){}
+  constructor(public MM:MainService , public home : HomeService){}
   ngOnInit(): void {
-    this.MM.getAllAcceptedCourses();
+    this.home.getAllAcceptedCourses();
   }
 }

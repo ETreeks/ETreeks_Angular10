@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   password: FormControl = new FormControl('',[Validators.required,Validators.minLength(8)]);
   rememberMe: boolean = false;
 
-  constructor(private auth:AuthService) {}
+  constructor(private auth:AuthService ,private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.checkRememberMe();
@@ -33,6 +34,8 @@ export class LoginComponent implements OnInit {
   }
   onRememberMeChange(event: Event) {
     this.rememberMe = (event.target as HTMLInputElement).checked;
+
+    
 }
 
   onSubmit() {
@@ -50,6 +53,13 @@ export class LoginComponent implements OnInit {
   {
     console.log(this.username.value);
     console.log(this.password.value);
-this.auth.Login(this.username.value , this.password.value);
+    
+    this.auth.Login(this.username.value , this.password.value);
+
+
   }
+
+
+
+
 }

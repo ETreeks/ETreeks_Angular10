@@ -5,20 +5,17 @@
         <div class="container-fluid">
             <label> <strong> search for the category Name </strong></label>
             <input type="text" [(ngModel)]="_filetrText" class="search-input">
-            <div class="col-lg-12 d-flex align-items-stretch">
+         
           
                 <div class="card w-100">
                     <button mat-button (click)="openCreateCatDailog()" type="button" >Create New</button>
                     <div class="card-body p-6">
                       
-                        <h5 class="card-title fw-semibold mb-6">All Categories</h5>
+                        <h6 class="card-title fw-semibold mb-6">All Categories</h6>
                         <div class="table-responsive">
                             <table class="table text-nowrap mb-0 align-middle">
                                 <thead class="text-dark fs-6">
                                     <tr>
-                                        <th class="border-bottom-0" style="width: 10%;">
-                                            <h6 class="fw-semibold mb-0">Id</h6>
-                                        </th>
                                         <th class="border-bottom-0" style="width: 30%;">
                                             <h6 class="fw-semibold mb-0">Category Name</h6>
                                         </th>
@@ -37,45 +34,27 @@
                                     <!-- <tr *ngFor="let category of managecat.categories"> -->
                                         <tr *ngFor="let category of managecat.categories | categorysearch:_filetrText">
                                         <td class="border-bottom-0">
-                                            <h6 class="fw-semibold mb-0">{{category.id}}</h6>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <h6 class="fw-semibold mb-1">{{category.categoryname}}</h6>
+                                            <h5 class="fw-semibold mb-1">{{category.categoryname}}</h5>
                                         </td>
                                         <td>
                                              <!-- <p class="mb-0 fw-normal">{{category.imagename}} | :)</p>    -->
                                                <img src="../../../assets/Images/{{category.imagename}}" style="width: 100%;">  
                                           </td>
                                           
-                                        <!-- <td class="border-bottom-0">
-                                            <div *ngIf="category.courses && category.courses.length > 0; else noCourses">
-                                                <div *ngFor="let course of category.courses">
-                                                    <p *ngIf="course.name"><strong>Course Name:</strong> {{course.name}}</p>
-                                                    <p *ngIf="course.createddate"><strong>Created Date:</strong> {{course.createddate | date:'shortDate'}}</p>
-                                                    <p *ngIf="course.accepted_Status"><strong>Accepted Status:</strong> {{course.accepted_Status}}</p>
-                                                    <p *ngIf="course.price"><strong>Price:</strong> {{course.price}}</p>
-                                                    <p *ngIf="course.passmark"><strong>Passmark:</strong> {{course.passmark}}</p>
-                                                    <p *ngIf="course.imagename"><strong>Image Name:</strong> {{course.imagename || 'No Image'}}</p>
-                                                    <hr>
-                                                </div>
-                                            </div>
-                                            <ng-template #noCourses>
-                                                <p>No courses available for this category.</p>
-                                            </ng-template>
-                                        </td> -->
                                         <td>
-                                            <button class="btn-danger" (click)="openDeleteCatDailog(category.id)"> Delete </button>
+                                            <button class="btn delete-button" (click)="openDeleteCatDailog(category.id)"> Delete </button>
+                                            <button  class="btn update-button" (click)="openUpdateDailog(category)"> Update </button>
                                         </td>
-                                        <td>
-                                            <button  class="btn-primary" (click)="openUpdateDailog(category)"> Update </button>
-                                    </td>
+                                        <!-- <td>
+                                            
+                                    </td> -->
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-            </div>
+          
         </div>
     </div>
 </div>
@@ -120,18 +99,3 @@
 
 
 
-<style>
-    .table {
-        width: 100%; 
-        font-size: 1.2rem; 
-    }
-
-    .table-responsive {
-        overflow-x: auto;
-    }
-
-    .card {
-        padding: 20px; 
-        border-radius: 0.5rem; 
-    }
-</style>

@@ -25,11 +25,51 @@ export class HomeService {
       }
     );
   }
-  
+
+  viewT2 : any =[];
+DisplayAllAcceptedTrainers() {
+  this.http.get<any[]>('https://localhost:7281/api/Admin/DisplayAllTrainers').subscribe(
+    res => {
+      this.viewT2 = res.filter((t: any) => t.registration_Status_Trainer === 'Accepted');
+      this.toster.success('Retrieved all accepted Trainers successfully');
+    },
+    err => {
+      console.log('Error');
+      console.log(err.status);
+      console.log(err.message);
+      this.toster.error('Something went wrong');
+    });
+}
+courses : any =[];
+getAllAcceptedCourses():any  {
+  this.http.get<any[]>('https://localhost:7281/api/Course').subscribe(
+    res => {
+      this.courses = res.filter((course: any) => course.accepted_Status === 'Accepted');
+      this.toster.success('Retrieved all accepted courses successfully');
+    },
+    err => {
+      console.log('Error');
+      console.log(err.status);
+      console.log(err.message);
+      this.toster.error('Something went wrong');
+    });
+}
 
 
-
-
-
+Test : any =[];
+getAllAcceptedTestimonial() :any 
+{
+    this.http.get<any[]>('https://localhost:7281/api/Testimonial').subscribe(
+      res => {
+        this.Test = res.filter((Te: any) => Te.testimonialsstatus === 'Accepted');
+        this.toster.success('Retrieved all accepted courses successfully');
+      },
+      err => {
+        console.log('Error');
+        console.log(err.status);
+        console.log(err.message);
+        this.toster.error('Something went wrong');
+      });
+  }
   
 }

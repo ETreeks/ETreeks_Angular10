@@ -10,7 +10,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Number Of Registered Trainers</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
             <p class="card-text">{{admin.numtrainers}}</p>
           </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Number Of Registered Student</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
             <p class="card-text">{{admin.numstudents}}</p>
           </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Number Of All Users</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
             <p class="card-text">{{admin.numallusers}}</p>
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Number Admin</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
             <p class="card-text">{{admin.numadmin}}</p>
           </div>
         </div>
@@ -57,7 +57,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Count Pending Trainers</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
             <p class="card-text">{{admin.countPendingTrainers}}</p>
           </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Count Accepted Trainers</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
             <p class="card-text">{{admin.countAcceptedTrainers}}</p>
           </div>
         </div>
@@ -82,7 +82,7 @@
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Count Categories</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
                   <p class="card-text">{{admin.CountCategories}}</p>
                 </div>
               </div>
@@ -93,55 +93,78 @@
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Count Courses</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
                   <p class="card-text">{{admin.CountCourses}}</p>
                 </div>
               </div>
             </div>
       
-         
+            <div class="col-md-3">
+              <h5 class="card-title fw-semibold mb-4"></h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Count Pending Reservation</h5>
+                <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text">{{admin.CountPendingReservation}}</p>
+                </div>
+              </div>
 
 
           </div>
 
  <!-- Row 4 -->
   <div class="row">
-    <div class="row">
-      <div class="col-md-3">
-        <h5 class="card-title fw-semibold mb-4"></h5>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Count Pending Reservation</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">{{admin.CountPendingReservation}}</p>
-          </div>
+    
+    <div class="col-md-6">
+      <h5 class="card-title fw-semibold mb-4"></h5>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Total Students Per Trainer</h5>
+          <table class="table text-nowrap mb-0 align-middle">
+            <thead class="text-dark fs-4">
+              <tr>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Trainer Username</h6>
+                </th>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Student Count</h6>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item2 of admin.stdpert">
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{item2.trainerUsername}}</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">{{item2.studentCount}}</h6>
+                </td>
+
+            </tbody>
+          </table>
         </div>
       </div>
-
-
-
-      <div class="col-md-3">
-        <h5 class="card-title fw-semibold mb-4"></h5>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Count Accepted Reservation</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">{{admin.CountAcceptedReservation}}</p>
-          </div>
+    </div>
+    
+    <div class="col-md-3">
+      <h5 class="card-title fw-semibold mb-4"></h5>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Count Accepted Reservation</h5>
+        <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+          <p class="card-text">{{admin.CountAcceptedReservation}}</p>
         </div>
-
+      </div>
         
   </div>
 
 
+
+
     
-
-
 
   <!-- Row 5 -->
           <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <h5 class="card-title fw-semibold mb-4"></h5>
                 <div class="card">
                   <div class="card-body">
@@ -170,7 +193,7 @@
                 </div>
               </div>
 
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <h5 class="card-title fw-semibold mb-4"></h5>
                 <div class="card">
                   <div class="card-body">
@@ -199,43 +222,16 @@
                 </div>
               </div>
 
-              <div class="col-md-3">
-                <h5 class="card-title fw-semibold mb-4"></h5>
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Total Students Per Trainer</h5>
-                    <table class="table text-nowrap mb-0 align-middle">
-                      <thead class="text-dark fs-4">
-                        <tr>
-                          <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Trainer Username</h6>
-                          </th>
-                          <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Student Count</h6>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let item2 of admin.stdpert">
-                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{item2.trainerUsername}}</h6></td>
-                          <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-1">{{item2.studentCount}}</h6>
-                          </td>
-  
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+             
 
           </div>
 
 
-<!-- Row7 -->
+<!-- Row6 -->
 <div class="row">
 
       <!-- Students Per Trainer Card -->
-      <div class="col-md-8">
+      <div class="col-md-12">
         <h5 class="card-title fw-semibold mb-4"></h5>
         <div class="card">
           <div class="card-body">

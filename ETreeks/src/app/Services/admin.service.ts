@@ -41,7 +41,7 @@ export class AdminService {
 
   gethome : any=[];
   testimonial:any=[];
-
+ 
   //hits api
   getAllRegisteredTrainers()
   {
@@ -284,7 +284,9 @@ err=>{
   displayAllTrainers(): Observable<any[]> {
     return this.http.get<any[]>('https://localhost:7281/api/Admin/DisplayAllTrainers');
   }
-  
+  DisplayAllStudents2(): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7281/api/Admin/DisplayAllStudents');
+  }
 
   DisplayAllStudents() {
     this.http.get('https://localhost:7281/api/Admin/DisplayAllStudents').subscribe(
@@ -460,6 +462,7 @@ getallreservation(): Observable<AdminSearch[]> {
   debugger
   return this.http.get<AdminSearch[]>(`https://localhost:7281/api/admin/GetAllReservation`);
 }
+
 
 }
 
