@@ -54,20 +54,6 @@ export class CoursecardstdComponent implements OnInit {
 
      
 
-//      openReviewDialog(): void {
-//       const courseId = this.course?.id;
-//       if (courseId !== undefined) {
-//         const dialogRef = this.dialog.open(CreatereviewComponent, {
-//           width: '250px',
-//           data: { courseId: courseId }
-//         });
-   
-//       dialogRef.afterClosed().subscribe(result => {
-//          console.log('The dialog was closed');
-//       });
-//     } else {
-//       console.error('Course ID is undefined');
-//      }
-// }
+
 
 }

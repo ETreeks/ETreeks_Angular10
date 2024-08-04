@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 //import { CoursesearchPipe } from './Pipes/coursesearch.pipe';
 //import { CategorysearchPipe } from './Pipes/categorysearch.pipe';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
-import { StudentModule } from './student/student.module';
+
 
 @NgModule({
   declarations: [
@@ -25,8 +25,7 @@ import { StudentModule } from './student/student.module';
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot() ,
 
-    StudentModule  // i add it because when i click on view course  
-
+   
   
   ],
   providers: [],

@@ -221,9 +221,9 @@ console.log("error");
 coursesTC:any=[];
 getAllCoursesTC( trainerId : Number): any {
   
-
+debugger
   this.http.get<any[]>('https://localhost:7281/api/Course').subscribe(res => {
-    this.coursesTC = res.filter(course => course.trainer_Id === trainerId);
+    this.coursesTC = res.filter(course => course.trainer_Id == trainerId);
     this.toster.success('Retrieve All Courses successfully');
   },
   err => {

@@ -26,6 +26,7 @@ const requestOptions = {
   headers : new HttpHeaders(headerDirc)
 }
 console.log(body);
+debugger
 this.http.post('https://localhost:7281/api/Login',body,requestOptions).subscribe((resp :any) => {
   debugger
   if (resp === "Your registration is pending. Please wait for approval.") {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from 'src/app/Services/main.service';
 
@@ -9,11 +9,8 @@ import { MainService } from 'src/app/Services/main.service';
 })
 export class TrainercardComponent {
 
-
   constructor(public main : MainService , private router  :Router){}
-  
   @Input() Tobject : any ;
-
 //@Output() Hala = new EventEmitter ();
 
   viewCourses(trainerId: number ) {
@@ -28,6 +25,7 @@ export class TrainercardComponent {
 
 
  }
+ 
 // import { Component, EventEmitter, Input, Output } from '@angular/core';
 // import { Router } from '@angular/router';
  

@@ -9,7 +9,6 @@
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Status</th>
             <th>Date</th>
             <th>Course Name</th>
@@ -20,7 +19,6 @@
         </thead>
         <tbody>
           <tr *ngFor="let reservation of reservations">
-            <td>{{reservation.id}}</td>
             <td>{{reservation.reservationstatus}}</td>
             <td>{{ reservation.reservationdate | date: 'shortDate' }}</td>
             <td>{{reservation.courses.name}}</td> 

@@ -3,7 +3,7 @@
     <img class="img-fluid course-image" src="../../../assets/Images/{{course.imagename}}">
     <div class="bg-secondary p-4">
         <div class="d-flex justify-content-between mb-3">
-            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i> Name :{{ course.name }} Students</small>
+            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i> Name :{{ course.name }} </small>
             <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>{{ course.createddate }}</small>
         </div>
         <!-- <a class="h5" href="">{{ course.title }}</a> -->
@@ -14,7 +14,7 @@
             </div>
             <div class="d-flex justify-content-end mt-3">
                 <button class="btn btn-primary" (click)="openBookDailog(course.id ,userId)">Book</button>
-                <button class="button-add-review" (click)="openReviewDialog(course.id ,userId)">Add Review</button>
+               
             </div>
         </div>
     </div>
