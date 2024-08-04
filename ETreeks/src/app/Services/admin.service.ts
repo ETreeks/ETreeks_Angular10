@@ -466,8 +466,6 @@ getallreservation(): Observable<AdminSearch[]> {
 }
 
 
-<<<<<<< HEAD
-=======
 
 private apiProfileUrl = 'https://localhost:7281/api/Admin';
 updateProfileAdmin(profile: UpdateProfileAdminDto): Observable<any> {
@@ -485,7 +483,7 @@ acceptProfileAdmin(userId: number, newRegistrationStatus: string): Observable<vo
   const url = `${this.acceptProfileUrl}/accept-profile-admin?userId=${userId}&newRegistrationStatus=${newRegistrationStatus}`;
   return this.http.post<void>(url, {});
 }
->>>>>>> c802a9e32e95d00a0d8653bfee441f13b68eb45b
+
 }
 
 export interface AdminSearch {
