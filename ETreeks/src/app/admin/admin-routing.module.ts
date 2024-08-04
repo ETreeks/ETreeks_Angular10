@@ -15,7 +15,11 @@ import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
+<<<<<<< HEAD
 //import { SearchtrainerComponent } from './searchtrainer/searchtrainer.component';
+=======
+import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.component';
+>>>>>>> c802a9e32e95d00a0d8653bfee441f13b68eb45b
 
 const routes: Routes = [
   {
@@ -72,6 +76,11 @@ const routes: Routes = [
     path:'report',
     component:ReportComponent
   } ,
+  {
+    path:'GPA',
+    component:GetProfileAdminComponent
+  } ,
+
   {
     path:'chart',
     component:ChartComponent

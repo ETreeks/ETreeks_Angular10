@@ -22,7 +22,11 @@ import { ManagetestimonialsComponent } from './managetestimonials/managetestimon
 import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartDComponent } from './chart-d/chart-d.component';
+<<<<<<< HEAD
 import { SearchtrainerComponent } from './searchtrainer/searchtrainer.component';
+=======
+import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.component';
+>>>>>>> c802a9e32e95d00a0d8653bfee441f13b68eb45b
 
 
 @NgModule({
@@ -46,7 +50,11 @@ import { SearchtrainerComponent } from './searchtrainer/searchtrainer.component'
     ReportComponent,
     ChartComponent,
     ChartDComponent,
+<<<<<<< HEAD
     SearchtrainerComponent
+=======
+    GetProfileAdminComponent
+>>>>>>> c802a9e32e95d00a0d8653bfee441f13b68eb45b
   ],
   imports: [
     CommonModule,
