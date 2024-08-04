@@ -15,6 +15,7 @@ import { SearchdatesComponent } from './searchdates/searchdates.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
+import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,11 @@ const routes: Routes = [
     path:'report',
     component:ReportComponent
   } ,
+  {
+    path:'GPA',
+    component:GetProfileAdminComponent
+  } ,
+
   {
     path:'chart',
     component:ChartComponent

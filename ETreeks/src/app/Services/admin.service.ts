@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { GuserDto } from 'src/Interface/guser.dto';
+import { UpdateProfileAdminDto } from 'src/Interface/update-profile-admin.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -461,6 +463,24 @@ getallreservation(): Observable<AdminSearch[]> {
   return this.http.get<AdminSearch[]>(`https://localhost:7281/api/admin/GetAllReservation`);
 }
 
+
+
+private apiProfileUrl = 'https://localhost:7281/api/Admin';
+updateProfileAdmin(profile: UpdateProfileAdminDto): Observable<any> {
+  return this.http.put(`${this.apiProfileUrl}/update-profile-admin`, profile);
+}
+
+
+
+getProfileAdmin(userId: number): Observable<GuserDto> {
+  return this.http.get<GuserDto>(`${this.apiProfileUrl}/get-profile-admin/${userId}`);
+}
+
+private acceptProfileUrl = 'https://localhost:7281/api/Admin';
+acceptProfileAdmin(userId: number, newRegistrationStatus: string): Observable<void> {
+  const url = `${this.acceptProfileUrl}/accept-profile-admin?userId=${userId}&newRegistrationStatus=${newRegistrationStatus}`;
+  return this.http.post<void>(url, {});
+}
 }
 
 export interface AdminSearch {

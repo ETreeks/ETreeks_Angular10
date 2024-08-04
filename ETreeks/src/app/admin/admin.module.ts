@@ -22,6 +22,7 @@ import { ManagetestimonialsComponent } from './managetestimonials/managetestimon
 import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartDComponent } from './chart-d/chart-d.component';
+import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ChartDComponent } from './chart-d/chart-d.component';
     ManagetestimonialsComponent,
     ReportComponent,
     ChartComponent,
-    ChartDComponent
+    ChartDComponent,
+    GetProfileAdminComponent
   ],
   imports: [
     CommonModule,
