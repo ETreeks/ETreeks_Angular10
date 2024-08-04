@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,10 @@ DisplayAllAcceptedTrainers() {
       this.toster.error('Something went wrong');
     });
 }
+DisplayAllAcceptedTrainers2(): Observable<any[]> {
+  return this.http.get<any[]>(`https://localhost:7281/api/Admin/DisplayAllTrainers`);
+}
+
 courses : any =[];
 getAllAcceptedCourses():any  {
   this.http.get<any[]>('https://localhost:7281/api/Course').subscribe(

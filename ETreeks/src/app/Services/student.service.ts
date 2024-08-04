@@ -84,7 +84,16 @@ createReview(body: any) {
 getAllCourses(): Observable<any[]> {
   return this.http.get<any[]>('https://localhost:7281/api/Course');
 }
+getallreservationstd(): Observable<any[]> {
+  debugger
+  return this.http.get<any[]>(`https://localhost:7281/api/Reservation`);
+}
 
+
+getTrainerSessionsById(trainerId: number): Observable<SessionDTO[]> {
+  debugger
+  return this.http.get<SessionDTO[]>(`https://localhost:7281/api/Student/GetTrainerSessionsByID/${trainerId}`);
+}
 } 
 
 
@@ -94,4 +103,5 @@ export interface SessionDTO {
   sessionName: string;
   startDate: Date;
   endDate: Date;
+  
 }

@@ -1,5 +1,39 @@
-
 <app-studentnavbar></app-studentnavbar>
-<p>mycourses works!</p>
-<button class="button-add-review" (click)="openReviewDialog()">Add Review</button>
+
+<div class="container">
+  <h2>Your Reservations</h2>
+
+  <div *ngIf="reservations.length === 0">
+    <p>No reservations found for your account.</p>
+  </div>
+
+  <div *ngIf="reservations.length > 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Reservation Date</th>
+          <th>Status</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <td>{{ reservation.course_Id }}</td>
+          <td>{{ reservation.reservationdate | date: 'short' }}</td>
+          <td>{{ reservation.reservationstatus }}</td>
+          <td>
+            <button 
+              class="button-add-review" 
+              (click)="openCreateRDailog(reservation.course_Id)" 
+              [disabled]="reservation.reservationstatus === 'Pending'">
+              Add Review
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <app-footer></app-footer>
