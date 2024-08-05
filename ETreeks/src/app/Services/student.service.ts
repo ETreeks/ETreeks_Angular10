@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { ProfileStudentDTO } from 'src/Interface/profile-student-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -93,6 +94,17 @@ getallreservationstd(): Observable<any[]> {
 getTrainerSessionsById(trainerId: number): Observable<SessionDTO[]> {
   debugger
   return this.http.get<SessionDTO[]>(`https://localhost:7281/api/Student/GetTrainerSessionsByID/${trainerId}`);
+}
+
+
+
+private apiProfileUrl = 'https://localhost:7281/api/Student';
+viewProfile(id: number): Observable<ProfileStudentDTO> {
+  return this.http.get<ProfileStudentDTO>(`${this.apiProfileUrl}/${id}`);
+}
+
+updateProfile(profileStudentDto: ProfileStudentDTO): Observable<void> {
+  return this.http.put<void>(`${this.apiProfileUrl}`, profileStudentDto);
 }
 } 
 
