@@ -11,18 +11,18 @@ const routes: Routes = [
 
   { path: 'admin', 
     loadChildren:()=>AdminModule 
-    // ,canActivate:[authorizationGuard]
+     ,canActivate:[authorizationGuard]
   },
 
 
   { path: 'trainer', 
     loadChildren:()=>TrainerModule
-    // , canActivate:[authorizationGuard]
+     , canActivate:[authorizationGuard]
   }
   ,
   { path: 'student', 
     loadChildren:()=>StudentModule
-    // ,canActivate:[authorizationGuard]
+     ,canActivate:[authorizationGuard]
   },
   { path: 'auth', 
     loadChildren:()=>AuthModule
