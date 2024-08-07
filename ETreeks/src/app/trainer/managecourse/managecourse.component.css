@@ -61,7 +61,7 @@ input[type="text"] {
   }
   
   .delete-button:hover {
-    background-color: red; 
+    background-color: rgb(241, 96, 96); 
     color: white;
   }
 
@@ -77,6 +77,34 @@ input[type="text"] {
   }
   
   .update-button:hover {
-    background-color: rgb(33, 49, 190); 
+    background-color: rgb(118, 130, 236); 
     color: white;
   }
+
+  .create-button {
+    margin-right: 25px; 
+    border: 2px solid rgb(0, 0, 0); 
+    color: rgb(0, 0, 0); 
+    background-color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+  }
+  
+  .create-button:hover {
+    background-color: rgb(119, 179, 96); 
+    color: white;
+  }
+
+  .table {
+    width: 100%; 
+    font-size: 1.2rem; 
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.card {
+    padding: 20px; 
+    border-radius: 0.5rem; 
+}

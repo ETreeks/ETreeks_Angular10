@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MainService } from 'src/app/Services/main.service';
 import { StudentService } from 'src/app/Services/student.service';
 import { CreatereviewComponent } from '../createreview/createreview.component';
+import { CoursedetailsComponent } from '../coursedetails/coursedetails.component';
 
 @Component({
   selector: 'app-coursecardstd',
@@ -27,27 +28,28 @@ export class CoursecardstdComponent implements OnInit {
   //   this.s.CreateBooking(courseId, userId);
   // }
 
-  @ViewChild('bookDailog') callBookDailog!:TemplateRef<any>; 
+  // @ViewChild('bookDailog') callBookDailog!:TemplateRef<any>; 
 
-  openBookDailog(courseId: number, userId: number){
-    const dailogResult=this.dialog.open(this.callBookDailog);
-    dailogResult.afterClosed().subscribe((result)=>{
-     if(result !=undefined){
-       if(result=='yes') 
+  // openBookDailog(courseId: number, userId: number){
+  //   const dailogResult=this.dialog.open(this.callBookDailog);
+  //   dailogResult.afterClosed().subscribe((result)=>{
+  //    if(result !=undefined){
+  //      if(result=='yes') 
         
-         {
-          //this.router.navigate(['/paymentform']);
-          this.s.CreateBooking(courseId, userId); 
-         }
-       else 
-       console.log('Thank you !');
-     }
-    })
-     }
+  //        {
+  //         //this.router.navigate(['/paymentform']);
+  //         this.s.CreateBooking(courseId, userId); 
+  //        }
+  //      else 
+  //      console.log('Thank you !');
+  //    }
+  //   })
+  //    }
 
-     openReviewDialog(courseId: number, userId: number)
+     ReadMore(courseId: number)
      {
-       this.dialog.open(CreatereviewComponent);
+   
+       this.router.navigate([`/student/coursedetails/${courseId}`]);
      }
 
 

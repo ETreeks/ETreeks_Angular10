@@ -1,0 +1,54 @@
+
+<app-studentnavbar></app-studentnavbar>
+<br>
+<br>
+<div class="container">
+<div class="course-details-card">
+    <div class="course-image">
+      <img class="img-fluid course-image" src="../../../assets/Images/{{courseDetails?.imagename}}">
+    </div>
+    <!-- <div class="course-image">
+        <img [src]="'../../../assets/Images/' + courseDetails.imagename" alt="Course Image">
+      </div> -->
+      <!-- <img class="img-fluid course-image" [src]="'../../../assets/Images/' + (courseDetails?.imagename )"> -->
+
+    <div class="course-info">
+      <h2>{{ courseDetails?.name }}</h2>
+      <p><strong>PassMark:</strong> {{ courseDetails?.passmark }}</p>
+      <p><strong>Created Date:</strong> {{ courseDetails?.createddate }}</p>
+       <p><strong>Category:</strong> {{ selectedCategoryName  }}</p> 
+       <p><strong>Trainer Name:</strong> {{ selectedTrainerName  }}</p> 
+      <h2><strong>Price:</strong> {{ courseDetails?.price }} $</h2>
+      
+     
+      
+     
+      
+      <!-- <button class="btn btn-primary" (click)="Back()">Back</button> -->
+      <button class="btn btn-primary back-button" (click)="Back()" style="margin-right: 10px;">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+
+      <button class="btn btn-primary" (click)="openBookDailog(courseDetails.id ,userId)" >
+        <i class="fas fa-clipboard-check"></i> Enroll
+        
+        </button>
+      
+    
+      
+    </div>
+  </div>
+  
+</div>
+  
+<app-footer></app-footer>
+
+<ng-template #bookDailog>          
+    <h1 mat-dialog-title>Enrollment </h1>
+    <div mat-dialog-content>
+        Do you want to enrollment in this course?
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="no">No</button>
+      <button mat-button mat-dialog-close="yes" cdkFocusInitial>Yes</button>
+    </div></ng-template> 

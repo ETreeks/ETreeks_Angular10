@@ -9,7 +9,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
       <input type="text" [(ngModel)]="_filetrText" class="search-input">
         
             <div class="card w-100">
-              <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button>
+              <button class="btn create-button" (click)="openCreateCourseDailog()" type="button" >Create New</button>
               <div class="card-body p-6">
                 <h6 class="card-title fw-semibold mb-6">All Courses</h6>
                 <div class="table-responsive">
@@ -144,21 +144,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
   
 
 
-<style>
-  .table {
-      width: 100%; 
-      font-size: 1.2rem; 
-  }
 
-  .table-responsive {
-      overflow-x: auto;
-  }
-
-  .card {
-      padding: 20px; 
-      border-radius: 0.5rem; 
-  }
-</style>
 
 
 

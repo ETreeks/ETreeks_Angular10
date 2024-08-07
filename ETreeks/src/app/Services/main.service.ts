@@ -86,6 +86,10 @@ getAllCategories(): Observable<any[]> {
   
 }
 
+getCourseDetails(id:number): Observable<any[]> {
+  return this.http.get<any[]>('https://localhost:7281/api/Course/'+id);
+  
+}
 
 DeleteCategory(id:number)
 {

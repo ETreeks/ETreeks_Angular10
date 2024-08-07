@@ -14,5 +14,8 @@ export class DashboardComponent  implements OnInit{
     this.admin.getAllRegisteredStudents();
     this.admin.GetCountAcceptedTrainers();
     this.admin.getCountPendingTrainers();
+
   }
+
+  
 }

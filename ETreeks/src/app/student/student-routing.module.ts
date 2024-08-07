@@ -13,6 +13,8 @@ import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessio
 import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercourses.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { MycoursesComponent } from './mycourses/mycourses.component';
+import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
+import { ViewtcoursesComponent } from './viewtcourses/viewtcourses.component';
 
 const routes: Routes = [
   {
@@ -58,8 +60,9 @@ const routes: Routes = [
     component:SearchsessioncourseComponent
   }
   , {
-    path:'viewtrainercourses',
-    component:ViewtrainercoursesComponent
+    path:'viewtcourses',
+    //component:ViewtrainercoursesComponent
+    component:ViewtcoursesComponent
   }
   ,{
     path:'paymentform',
@@ -67,6 +70,10 @@ const routes: Routes = [
   } ,{
     path:'mycourses',
     component:MycoursesComponent
+  }
+  ,{
+    path:'coursedetails/:id',
+    component:CoursedetailsComponent
   }
 ];
 

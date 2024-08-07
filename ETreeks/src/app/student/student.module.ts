@@ -21,6 +21,8 @@ import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercou
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { MycoursesComponent } from './mycourses/mycourses.component';
 import { CreatereviewComponent } from './createreview/createreview.component';
+import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
+import { ViewtcoursesComponent } from './viewtcourses/viewtcourses.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { CreatereviewComponent } from './createreview/createreview.component';
     ViewtrainercoursesComponent,
     PaymentformComponent,
     MycoursesComponent,
-    CreatereviewComponent
+    CreatereviewComponent,
+    CoursedetailsComponent,
+    ViewtcoursesComponent
   ],
   imports: [
     CommonModule,

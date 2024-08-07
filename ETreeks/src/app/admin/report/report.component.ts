@@ -49,7 +49,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService, AdminSearch } from 'src/app/Services/admin.service';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import 'jspdf-autotable'; // warning
 
 @Component({
   selector: 'app-report',
