@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { StudentService } from 'src/app/Services/student.service';
 import { ProfileStudentDTO } from 'src/Interface/profile-student-dto';
 
@@ -11,7 +12,7 @@ export class ViewprofilestdComponent implements OnInit {
   profile: ProfileStudentDTO | null = null;
   userId: number | null = null;
 
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService ,private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.loadUserIdFromLocalStorage();
@@ -47,9 +48,12 @@ export class ViewprofilestdComponent implements OnInit {
       this.studentService.updateProfile(this.profile).subscribe(
         response => {
           console.log('Profile updated successfully');
+          this.toastr.success(' Your profile updated successfully');
+          
         },
         error => {
           console.error('Error updating profile', error);
+          this.toastr.error('Error updating your profile');
         }
       );
     }

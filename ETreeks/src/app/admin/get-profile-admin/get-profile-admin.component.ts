@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/Services/admin.service';
 import { GuserDto } from 'src/Interface/guser.dto';
 import { UpdateProfileAdminDto } from 'src/Interface/update-profile-admin.dto';
@@ -12,7 +13,7 @@ export class GetProfileAdminComponent implements OnInit {
   profile: GuserDto | null = null;
   userId: number | null = null;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService ,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loadUserIdFromLocalStorage();
@@ -60,9 +61,11 @@ export class GetProfileAdminComponent implements OnInit {
       this.adminService.updateProfileAdmin(updatedProfile).subscribe(
         response => {
           console.log('Profile updated successfully');
+          this.toastr.success(' Your profile updated successfully');
         },
         error => {
           console.error('Error updating profile', error);
+          
         }
       );
     }
