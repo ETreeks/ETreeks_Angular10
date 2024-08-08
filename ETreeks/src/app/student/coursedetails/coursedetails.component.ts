@@ -99,16 +99,21 @@ export class CoursedetailsComponent implements OnInit {
     this.router2.navigate(['student/viewcourse']);
   }
 
-  openBookDailog(courseId: number, userId: number) {
-    const dailogResult = this.dialog.open(this.callBookDailog);
-    dailogResult.afterClosed().subscribe((result) => {
-      if (result !== undefined) {
-        if (result === 'yes') {
-          this.s.CreateBooking(courseId, userId);
-        } else {
-          console.log('Thank you !');
-        }
-      }
+  // openBookDailog(courseId: number, userId: number) {
+  //   const dailogResult = this.dialog.open(this.callBookDailog);
+  //   dailogResult.afterClosed().subscribe((result) => {
+  //     if (result !== undefined) {
+  //       if (result === 'yes') {
+  //         this.s.CreateBooking(courseId, userId);
+  //       } else {
+  //         console.log('Thank you !');
+  //       }
+  //     }
+  //   });
+  // }
+  openBookDailog(price: number , courseId: number, ){
+    this.router2.navigate([`/student/paymentform/${price}`], {
+      queryParams: { courseId: courseId }
     });
   }
 }

@@ -61,4 +61,10 @@ this.route2.navigate(['student/viewteacher']);
      }
     })
      }
+     ReadMore(courseId: number)
+     {
+   
+       this.route2.navigate([`/student/coursedetails/${courseId}`]);
+     }
+
     }

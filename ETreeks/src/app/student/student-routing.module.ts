@@ -65,7 +65,7 @@ const routes: Routes = [
     component:ViewtcoursesComponent
   }
   ,{
-    path:'paymentform',
+    path:'paymentform/:id',
     component:PaymentformComponent
   } ,{
     path:'mycourses',
