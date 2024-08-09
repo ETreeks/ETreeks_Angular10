@@ -51,10 +51,10 @@ export class PaymentformComponent {
       this.p.processPayment(this.PaymentForm.value, this.price).subscribe(
         response => {
           // Handle successful payment
-          // this.snackBar.open('Payment successful!', 'Close', {
-          //   verticalPosition: 'top',
-          //   horizontalPosition: 'center'
-          // });
+          this.snackBar.open('Payment successful!', 'Close', {
+            verticalPosition: 'top',
+            horizontalPosition: 'center'
+          });
 
          // this.router.navigate(['/student']);
          //this.s.CreateBooking(courseId, userId);
