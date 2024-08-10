@@ -20,7 +20,25 @@
        <p><strong>Trainer Name:</strong> {{ selectedTrainerName  }}</p> 
       <h2><strong>Price:</strong> {{ courseDetails?.price }} $</h2>
       
-     
+      <hr>
+      <div class="course-reviews">
+       <h3>Reviews</h3>
+        <ul *ngIf="reviews.length > 0; else noReviews">
+         <li class="review" *ngFor="let review of reviews">
+         <div class="review-header">
+             <span class="review-author">{{ review.guser_Fname }} {{ review.guser_Lname }}</span>
+             <span class="review-date">{{ review.reviewDate | date }}</span>
+         </div>
+         <div class="review-body">
+             {{ review.message }}
+         </div>
+     </li>
+ </ul>
+
+ <ng-template #noReviews>
+     <p>No reviews available.</p>
+ </ng-template>
+</div>
       
      
       
@@ -33,7 +51,9 @@
         <i class="fas fa-clipboard-check"></i> Enroll
         
         </button> -->
-        <button class="btn btn-primary" (click)="openBookDailog(courseDetails.price ,courseDetails.id)">Payment&Book</button> 
+        <button class="btn btn-primary" (click)="openBookDailog(courseDetails.price ,courseDetails.id)">
+          <i class="fas fa-book"></i>
+          Book</button> 
     
       
     </div>

@@ -106,9 +106,31 @@ viewProfile(id: number): Observable<ProfileStudentDTO> {
 updateProfile(profileStudentDto: ProfileStudentDTO): Observable<void> {
   return this.http.put<void>(`${this.apiProfileUrl}`, profileStudentDto);
 }
+
+getAllReviews(): Observable<Review[]> {
+  return this.http.get<Review[]>('https://localhost:7281/api/Review');
+}
+getAllUsers(): Observable<Guser[]> {
+  return this.http.get<Guser[]>(`https://localhost:7281/api/admin/DisplayAllUsers`);
+}
+
 } 
 
-
+export interface Review {
+  gusers: Guser;
+  id: number;
+  message: string;
+  reviewDate: Date;
+  guser_Id: number;
+  course_Id: number;
+  guser_Fname?: string;
+  guser_Lname?: string;
+}
+export interface Guser {
+  id: number;
+  fname: string;
+  lname: string;
+}
 
 export interface SessionDTO {
   courseName: string;

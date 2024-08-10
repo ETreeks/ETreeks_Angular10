@@ -1,18 +1,20 @@
 <app-studentnavbar></app-studentnavbar>
+
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
 data-sidebar-position="fixed" data-header-position="fixed">
 <div
   class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
   <div class="d-flex align-items-center justify-content-center w-100">
     <div class="row justify-content-center w-100">
+
       <div class="col-md-8 col-lg-6 col-xxl-3">
         <div class="card mb-0">
           <div class="card-body">
 
 
-            <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+           
               <img src="../../../assets/AdminTemp/images/logos/logo.png" width="180" alt="">
-            </a>
+           
             <p class="text-center">Payment Form </p>
             <!-- <form [formGroup]="PaymentForm">
               <div class="mb-3">
@@ -69,7 +71,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
                 <a class="text-primary fw-bold ms-2" routerLink= "">Go back</a>
               </div> ***
             </form> -->
-            <form [formGroup]="PaymentForm" (ngSubmit)="submitPayment()">
+            <form [formGroup]="PaymentForm" (ngSubmit)="submitPayment()" class="payment-form">
               <div class="mb-3">
                 <label for="Fname" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="FirstName" formControlName="FirstName">
@@ -99,7 +101,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
                 Submit
               </button>
             </form>
-            
+            <button class="btn btn-primary" (click)="goback()">Back</button>
           </div>
         </div>
       </div>

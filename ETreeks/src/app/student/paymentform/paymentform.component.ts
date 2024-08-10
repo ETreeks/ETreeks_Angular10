@@ -94,5 +94,7 @@ export class PaymentformComponent {
     });
    
   }
-
+  goback(){
+    this.router.navigate(['student/coursedetails/'+this.courseId]);
+  }
 }

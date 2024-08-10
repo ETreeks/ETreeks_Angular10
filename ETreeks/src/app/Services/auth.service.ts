@@ -26,6 +26,9 @@ const requestOptions = {
   headers : new HttpHeaders(headerDirc)
 }
 console.log(body);
+localStorage.setItem('username', body.username);
+
+console.log(localStorage.getItem('username'));
 debugger
 this.http.post('https://localhost:7281/api/Login',body,requestOptions).subscribe((resp :any) => {
   debugger

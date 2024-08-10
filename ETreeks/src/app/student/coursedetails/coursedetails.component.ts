@@ -1,9 +1,10 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { AdminService } from 'src/app/Services/admin.service';
 import { MainService } from 'src/app/Services/main.service';
-import { StudentService } from 'src/app/Services/student.service';
+import { Guser, Review, StudentService } from 'src/app/Services/student.service';
 
 @Component({
   selector: 'app-coursedetails',
@@ -33,8 +34,11 @@ export class CoursedetailsComponent implements OnInit {
     this.loadCourseDetails();
     this.loadCategories();
     this.loadTrainers(); 
+    this.loadReviews();
   }
-
+  reviews: Review[] = [];
+  gusers: Guser[] = [];
+  
   loadCourseDetails(): void {
     this.mainService.getCourseDetails(this.courseId).subscribe(details => {
       this.courseDetails = details;
@@ -114,6 +118,23 @@ export class CoursedetailsComponent implements OnInit {
   openBookDailog(price: number , courseId: number, ){
     this.router2.navigate([`/student/paymentform/${price}`], {
       queryParams: { courseId: courseId }
+    });
+  }
+  loadReviews(): void {
+    forkJoin([
+      this.s.getAllReviews(),
+      this.s.getAllUsers()
+    ]).subscribe(([reviews, gusers]) => {
+      this.reviews = reviews.filter(review => review.course_Id === this.courseId);
+      this.gusers = gusers;
+ 
+      this.reviews.forEach(review => {
+        const user = this.gusers.find(user => user.id === review.guser_Id);
+        review.guser_Fname = user ? user.fname : 'Unknown';
+        review.guser_Lname = user ? user.lname : 'Unknown';
+      });
+    }, error => {
+      console.error('Error fetching reviews or users', error);
     });
   }
 }

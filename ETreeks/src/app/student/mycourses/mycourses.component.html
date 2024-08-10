@@ -14,7 +14,9 @@
           <th>Course Name</th>
           <th>Reservation Date</th>
           <th>Status</th>
+          <th>Completed</th>
           <th>Review</th>
+          <th>Certification</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +24,7 @@
           <td>{{ reservation.course_Id }}</td>
           <td>{{ reservation.reservationdate | date: 'short' }}</td>
           <td>{{ reservation.reservationstatus }}</td>
+          <td>{{ reservation.completed }}</td>
           <td>
             <button 
               class="button-add-review" 
@@ -29,6 +32,17 @@
               [disabled]="reservation.reservationstatus === 'Pending'">
               Add Review
             </button>
+          </td>
+          <td>
+            <div>
+ 
+              <button class="custom-button" (click)="loadReservations(reservation.id,reservation.course_Id)"
+              [disabled]="reservation.reservationstatus === 'Pending' || reservation.completed === 'No' ">
+              Generate Certificates</button>
+             
+              <canvas #canvas width="800" height="600" style="display:none;"></canvas>
+             
+            </div>
           </td>
         </tr>
       </tbody>
