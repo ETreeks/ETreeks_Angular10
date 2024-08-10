@@ -24,6 +24,7 @@ import { CreatereviewComponent } from './createreview/createreview.component';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
 import { ViewtcoursesComponent } from './viewtcourses/viewtcourses.component';
 import { WeatherComponent } from './weather/weather.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { WeatherComponent } from './weather/weather.component';
     CreatereviewComponent,
     CoursedetailsComponent,
     ViewtcoursesComponent,
-    WeatherComponent
+    WeatherComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,

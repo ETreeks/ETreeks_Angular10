@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ProfileStudentDTO } from 'src/Interface/profile-student-dto';
 
 @Injectable({
@@ -114,8 +114,70 @@ getAllUsers(): Observable<Guser[]> {
   return this.http.get<Guser[]>(`https://localhost:7281/api/admin/DisplayAllUsers`);
 }
 
-} 
 
+
+
+
+// AllReviewH: any[] = [];
+
+// getAllReviewsH() {
+//   const userID = Number(localStorage.getItem('Id'));
+
+//   this.http.get('https://localhost:7281/api/Review').subscribe(
+//     (res: any) => {
+//       // Filter the reviews based on the logged-in user's ID
+//       this.AllReviewH = res.filter((review: any) => review.guser_Id === userID);
+//       this.toster.success('Successfully retrieved reviews.');
+//     },
+//     err => {
+//       console.log("error");
+//       console.log(err.status);
+//       console.log(err.message);
+//       this.toster.error('Something went wrong.');
+//     }
+//   );
+// }
+
+
+// AllTestH: any[] = [];
+
+// getAllTestH() {
+//   const userID = Number(localStorage.getItem('Id'));
+
+//   this.http.get('https://localhost:7281/api/Testimonial').subscribe(
+//     (res: any) => {
+//       // Filter the Test based on the logged-in user's ID
+//       this.AllTestH = res.filter((Test: any) => Test.guser_Id === userID);
+//       this.toster.success('Successfully retrieved Testimonial.');
+//     },
+//     err => {
+//       console.log("error");
+//       console.log(err.status);
+//       console.log(err.message);
+//       this.toster.error('Something went wrong.');
+//     }
+//   );
+// }
+
+getAllReviewsH(): Observable<any[]> {
+  const userID = Number(localStorage.getItem('Id'));
+  return this.http.get<any[]>('https://localhost:7281/api/Review').pipe(
+    map((reviews: any[]) => reviews.filter(review => review.guser_Id === userID))
+  );
+}
+
+getAllTestH(): Observable<any[]> {
+  const userID = Number(localStorage.getItem('Id'));
+  return this.http.get<any[]>('https://localhost:7281/api/Testimonial').pipe(
+    map((testimonials: any[]) => testimonials.filter(test => test.gusers_Id === userID))
+  );
+
+
+
+
+
+} 
+}
 export interface Review {
   gusers: Guser;
   id: number;

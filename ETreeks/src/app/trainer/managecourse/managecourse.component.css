@@ -47,7 +47,8 @@ input[type="text"] {
   }
   
   .table tbody tr:hover {
-    background-color: #9bc3eb;
+     background-color: #9bc3eb; 
+    /* background-color: #faad47; */
   }
 
   

@@ -18,6 +18,7 @@ import { HometrainerComponent } from './hometrainer/hometrainer.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddlocationComponent } from './addlocation/addlocation.component';
 import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
+import { LecturerequestComponent } from './lecturerequest/lecturerequest.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CompletedcourseComponent } from './completedcourse/completedcourse.comp
     DashboardtrainerComponent,
     HometrainerComponent,
     AddlocationComponent,
-    CompletedcourseComponent
+    CompletedcourseComponent,
+    LecturerequestComponent
   ],
   imports: [
     CommonModule,

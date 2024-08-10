@@ -28,9 +28,9 @@ table {
     background-color: #f3f3f3;
   }
  
-  table tbody tr:last-of-type {
+  /* table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
-  }
+  } */
  
   table tbody tr.active-row {
     font-weight: bold;

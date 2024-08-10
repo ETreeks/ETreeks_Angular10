@@ -10,6 +10,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteprofileComponent } from './deleteprofile/deleteprofile.component';
 import { DashboardtrainerComponent } from './dashboardtrainer/dashboardtrainer.component';
 import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
+import { LecturerequestComponent } from './lecturerequest/lecturerequest.component';
 
 const routes: Routes = [
 
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path:'completed',
     component:CompletedcourseComponent
+  },
+  {
+    path:'lecture',
+    component:LecturerequestComponent
   }
 ];
 
