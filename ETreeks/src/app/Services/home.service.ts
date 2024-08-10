@@ -76,5 +76,19 @@ getAllAcceptedTestimonial() :any
         this.toster.error('Something went wrong');
       });
   }
+  getTrainerSessionsByUsername(username: string): Observable<SessionDTO[]> {
+    return this.http.get<SessionDTO[]>(`https://localhost:7281/api/Sessions?username=${username}`);
+  }
+
+}
+
+
+export interface SessionDTO {
+  courseName: string;
+  sessionName: string;
+  startDate: Date;
+  endDate: Date;
   
 }
+
+

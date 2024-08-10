@@ -38,6 +38,10 @@ console.log(err.manage);
   getAllReservations(): Observable<Reservation[]> {
     return this.http.get<Reservation[]>(`https://localhost:7281/api/reservation`);
   }
+  getAllReservations2(): Observable<Reservation[]> {
+    const trainerId = Number(localStorage.getItem('Id'));
+    return this.http.get<Reservation[]>(`https://localhost:7281/api/reservation`);
+  }
   
   acceptReservation(id: number): Observable<any> {
     return this.http.post(`https://localhost:7281/api/Trainer/accept/${id}`, {});
@@ -92,8 +96,8 @@ export interface Reservation {
   export interface Course {
     id: number;
     name: string;
+    trainer_Id:number;
   }
-   
   export interface Guser {
     id: number;
     fname: string;

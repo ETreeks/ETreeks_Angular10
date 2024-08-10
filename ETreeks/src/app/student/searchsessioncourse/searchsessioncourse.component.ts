@@ -1,28 +1,28 @@
-import { Component ,Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/Services/home.service';
-import { StudentService } from 'src/app/Services/student.service';
-import { SessionDTO } from 'src/app/Services/student.service';
+import { StudentService, SessionDTO } from 'src/app/Services/student.service';
+
 @Component({
   selector: 'app-searchsessioncourse',
   templateUrl: './searchsessioncourse.component.html',
   styleUrls: ['./searchsessioncourse.component.css']
 })
-export class SearchsessioncourseComponent  implements OnInit {
+export class SearchsessioncourseComponent implements OnInit {
   sessions: SessionDTO[] = [];
-  username: string = '';
-  trainers: any[] = []; // Array to hold trainers
-  selectedTrainerId: number | null = null; // Store the selected trainer ID
- 
-  constructor(public StudentService:StudentService ,public home : HomeService ) { }
- 
+  trainers: string[] = []; // Array to hold trainer usernames
+  selectedTrainerUsername: string = ''; // Store the selected trainer username
+
+  constructor(private studentService: StudentService, private homeService: HomeService) { }
+
   ngOnInit(): void {
     this.fetchTrainers();
   }
 
   fetchTrainers(): void {
-    this.home.DisplayAllAcceptedTrainers2().subscribe(
+    this.homeService.DisplayAllAcceptedTrainers2().subscribe(
       (data: any[]) => {
-        this.trainers = data;
+        // Extract usernames only
+        this.trainers = data.map(trainer => trainer.username);
       },
       (error) => {
         console.error('Error fetching trainers', error);
@@ -30,21 +30,14 @@ export class SearchsessioncourseComponent  implements OnInit {
     );
   }
 
- 
-  // searchSessions(): void {
-  //   this.StudentService.getTrainerSessionsByUsername(this.username).subscribe(
-  //     (data: SessionDTO[]) => {
-  //       this.sessions = data;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching sessions', error);
-  //     }
-  //   );
-  // }
+  onTrainerChange(): void {
+    // Automatically search when the trainer selection changes
+    this.searchSessions();
+  }
+
   searchSessions(): void {
-    debugger
-    if (this.selectedTrainerId !== null) {
-      this.StudentService.getTrainerSessionsById(this.selectedTrainerId).subscribe(
+    if (this.selectedTrainerUsername) {
+      this.studentService.getTrainerSessionsByUsername(this.selectedTrainerUsername).subscribe(
         (data: SessionDTO[]) => {
           this.sessions = data;
         },
@@ -52,9 +45,20 @@ export class SearchsessioncourseComponent  implements OnInit {
           console.error('Error fetching sessions', error);
         }
       );
+    } else {
+      // If no trainer is selected, you might want to clear the sessions or show all sessions
+      this.sessions = [];
     }
+  }
+
+  // onSearch(): void {
+  //   this.searchSessions();
+  // }
+
+  onClear(): void {
+    this.selectedTrainerUsername = ''; // Clear the selected trainer
+    this.sessions = []; // Clear the sessions list or reset to show all sessions
   }
 }
 
- 
  

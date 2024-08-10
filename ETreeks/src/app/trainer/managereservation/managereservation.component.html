@@ -24,8 +24,9 @@
             <td>{{reservation.courses.name}}</td> 
             <td>{{reservation.gusers.fname}} {{reservation.gusers.lname}}</td> 
             <td>
-              <button (click)="acceptReservation(reservation.id)">Accept</button>
-              <button (click)="rejectReservation(reservation.id)">Reject</button>
+              <button (click)="acceptReservation(reservation.id)" class="accept"
+              [disabled]="reservation.reservationstatus === 'Accepted'">Accept</button>
+              <button (click)="rejectReservation(reservation.id)" class="reject" >Reject</button>
             </td>
           </tr>
         </tbody>
