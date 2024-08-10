@@ -86,13 +86,31 @@ export class MycoursesComponent implements OnInit {
     public mainService: MainService,
     private route: ActivatedRoute,
   ) {}
-
+  Courses: any[] = [];
   @ViewChild('openRDialog') callReviewDailog!: TemplateRef<any>; 
 
   ngOnInit(): void {
+    this.username = localStorage.getItem('username') || '';
+  if (!this.username) {
+    console.error('Username is null. The user might not be logged in.');
+    // Handle the case where username is null
+  } else {
+    console.log('Username:', this.username);
+  }
+  
     this.loadCourse();
     this.getReservationsByUserId();
+  //   this.mainService.getAllCourses2().subscribe((data: any[]) => {
+  //     this.Courses = data.map(course => ({
+  //       id: course.id,
+  //       name: course.name
+  //     }));
+  //     console.log(this.Courses); 
+  //   }, err => {
+  //     console.log("Error fetching categories", err);
+  //   });
   }
+
 
   loadCourse(): void {
     this.mainService.getAllCourses2().subscribe((data: any[]) => {
@@ -136,6 +154,7 @@ export class MycoursesComponent implements OnInit {
         
         this.reservations2.forEach(reservation => {
           if (reservation.completed === 'Yes') {
+            debugger
             const studentName = this.username;
             console.log(`Fetching course name for course ID: ${courseId}`);
             const courseName = this.courseDetailsMap.get(courseId) || 'Unknown Course';

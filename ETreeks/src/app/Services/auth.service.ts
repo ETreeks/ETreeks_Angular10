@@ -26,7 +26,7 @@ const requestOptions = {
   headers : new HttpHeaders(headerDirc)
 }
 console.log(body);
-localStorage.setItem('username', body.username);
+//localStorage.setItem('username', body.username);
 
 console.log(localStorage.getItem('username'));
 debugger
@@ -43,7 +43,7 @@ this.http.post('https://localhost:7281/api/Login',body,requestOptions).subscribe
 
     return ;
   }
-
+ localStorage.setItem('username', body.username);
   const responce ={
     token:resp.toString()
   }

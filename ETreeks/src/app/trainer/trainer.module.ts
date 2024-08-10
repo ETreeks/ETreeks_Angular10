@@ -17,6 +17,7 @@ import { DashboardtrainerComponent } from './dashboardtrainer/dashboardtrainer.c
 import { HometrainerComponent } from './hometrainer/hometrainer.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddlocationComponent } from './addlocation/addlocation.component';
+import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AddlocationComponent } from './addlocation/addlocation.component';
     CategorycardComponent,
     DashboardtrainerComponent,
     HometrainerComponent,
-    AddlocationComponent
+    AddlocationComponent,
+    CompletedcourseComponent
   ],
   imports: [
     CommonModule,

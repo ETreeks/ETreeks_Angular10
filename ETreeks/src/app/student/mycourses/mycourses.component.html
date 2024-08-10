@@ -21,7 +21,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let reservation of reservations">
-          <td>{{ reservation.course_Id }}</td>
+          <!-- <td>{{ reservation.course_Id }}</td> -->
+          <td>{{ courseDetailsMap.get(reservation.course_Id) || 'Unknown Course' }}</td>
           <td>{{ reservation.reservationdate | date: 'short' }}</td>
           <td>{{ reservation.reservationstatus }}</td>
           <td>{{ reservation.completed }}</td>

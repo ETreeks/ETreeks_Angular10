@@ -9,6 +9,7 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteprofileComponent } from './deleteprofile/deleteprofile.component';
 import { DashboardtrainerComponent } from './dashboardtrainer/dashboardtrainer.component';
+import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
 
 const routes: Routes = [
 
@@ -47,8 +48,11 @@ const routes: Routes = [
   {
     path:'deleteprofile',
     component:DeleteprofileComponent
+  } ,
+  {
+    path:'completed',
+    component:CompletedcourseComponent
   }
-  ,
 ];
 
 @NgModule({

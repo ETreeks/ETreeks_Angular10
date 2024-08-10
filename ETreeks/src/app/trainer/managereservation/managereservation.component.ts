@@ -23,7 +23,7 @@ export class ManagereservationComponent implements OnInit {
   courses: Course[] = [];
   gusers: Guser[] = [];
   //trainerId: number = 10;
-  trainerId: number = Number(localStorage.getItem('Id'));;
+  trainerId: number = Number(localStorage.getItem('Id'));
   
  
   constructor(private TrainerService: TrainerService) {}
