@@ -13,6 +13,8 @@ export class TrainerService {
 
 
   constructor(private http:HttpClient) { }
+  courseSession :any=[];
+
 
   searchReservations(startDate: string, endDate: string): Observable<TrainerSearch[]> {
     debugger
@@ -86,11 +88,63 @@ completedYes(id: number) {
 }
 
 
+<<<<<<< HEAD
 updateProfile(profile: ProfileTrainerDTO): Observable<void> {
   const headers = new HttpHeaders({
     'Authorization': `Bearer ${localStorage.getItem('token')}`
   });
   return this.http.put<void>(this.baseUrl, profile, { headers });
+=======
+
+//---------------------------------------------------
+getAllCourseSession(){
+  this.http.get('https://localhost:7281/api/CourseSession').subscribe(res=>{
+    this.courseSession= res; 
+
+  }, 
+err=>{
+  console.log("error");
+  console.log(err.status);
+  console.log(err.message);
+
+})
+}
+
+DeleteCourseSession(id:number){
+  this.http.delete(`https://localhost:7281/api/CourseSession/${id}`).subscribe((res)=>{
+    console.log("Deleted");
+    
+  },err=>{
+    console.log("Error");
+    
+  })
+  window.location.reload(); 
+
+}
+
+createCourseSession(body:any){
+this.http.post('https://localhost:7281/api/CourseSession',body).subscribe((resp)=>{
+  console.log('Created');
+  
+},err=>{
+  console.log('Error');
+  
+})
+window.location.reload(); 
+
+}
+
+updateCourseSession(body:any){
+this.http.put('https://localhost:7281/api/CourseSession',body).subscribe((reap)=>{
+  console.log('Updated');
+  
+},err=>{
+  console.log('Error');
+  
+})
+
+}
+>>>>>>> b9e0c5b423aaf8127d7988c65d3e492ef28084a6
 }
 
 updateUser(profile: ProfileTrainerDTO) {

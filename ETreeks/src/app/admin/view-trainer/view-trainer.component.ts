@@ -34,7 +34,7 @@ export class ViewTrainerComponent implements OnInit {
   }
 
   getStatusLabel(value: string): string {
-    const status = this.statusOptions.find(status => status.value === value);
+    const status = this.statusOptions.find(status => status.value == value);
     return status ? status.label : 'Update status menu';
   }
 }

@@ -11,6 +11,7 @@ import { DeleteprofileComponent } from './deleteprofile/deleteprofile.component'
 import { DashboardtrainerComponent } from './dashboardtrainer/dashboardtrainer.component';
 import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
 import { LecturerequestComponent } from './lecturerequest/lecturerequest.component';
+import { CourseSessionComponent } from './course-session/course-session.component';
 
 const routes: Routes = [
 
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path:'completed',
     component:CompletedcourseComponent
+  },
+  {
+    path:'CourseSession',
+    component:CourseSessionComponent
   },
   {
     path:'lecture',

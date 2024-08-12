@@ -50,7 +50,7 @@ import { HistoryComponent } from './history/history.component';
     CoursedetailsComponent,
     ViewtcoursesComponent,
     WeatherComponent,
-    HistoryComponent
+    HistoryComponent,
   ],
   imports: [
     CommonModule,
