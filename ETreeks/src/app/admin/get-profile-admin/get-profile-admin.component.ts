@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/Services/admin.service';
+import { ImageService } from 'src/app/Services/image-service.service';
 import { GuserDto } from 'src/Interface/guser.dto';
 import { UpdateProfileAdminDto } from 'src/Interface/update-profile-admin.dto';
 
@@ -14,7 +15,11 @@ export class GetProfileAdminComponent implements OnInit {
   userId: number | null = null;
   displayImage: string | null = null;
 
-  constructor(private adminService: AdminService ,private toastr: ToastrService) { }
+  constructor(
+    private adminService: AdminService,
+    private toastr: ToastrService,
+    private imageService: ImageService
+  ) { }
 
   ngOnInit(): void {
     this.loadUserIdFromLocalStorage();
@@ -22,21 +27,22 @@ export class GetProfileAdminComponent implements OnInit {
   }
 
   loadUserIdFromLocalStorage(): void {
-    const userIdFromStorage = localStorage.getItem('Id'); 
+    const userIdFromStorage = localStorage.getItem('Id');
     if (userIdFromStorage) {
-      this.userId = Number(userIdFromStorage); 
+      this.userId = Number(userIdFromStorage);
     } else {
       console.warn('userId not found in local storage');
     }
   }
 
   loadProfile(): void {
-    if (this.userId !== null) { 
+    if (this.userId !== null) {
       this.adminService.getProfileAdmin(this.userId).subscribe(
         (data: GuserDto) => {
           this.profile = data;
           if (this.profile && this.profile.imageName) {
             this.displayImage = `/assets/Images/${this.profile.imageName}`;
+            this.imageService.updateImage(this.displayImage); // Update image service
           }
         },
         error => {
@@ -55,7 +61,7 @@ export class GetProfileAdminComponent implements OnInit {
         const file: File = fileInput.files[0];
         const formData = new FormData();
         formData.append('file', file);
-  
+
         this.adminService.uploadProfileImage(formData).subscribe(
           (response: GuserDto) => {
             this.saveProfile(response.imageName);
@@ -70,7 +76,7 @@ export class GetProfileAdminComponent implements OnInit {
       }
     }
   }
-  
+
   private saveProfile(imageName: string): void {
     const updatedProfile: UpdateProfileAdminDto = {
       userId: this.userId!,
@@ -79,15 +85,17 @@ export class GetProfileAdminComponent implements OnInit {
       newFname: this.profile!.fname,
       newLname: this.profile!.lname,
       newEmail: this.profile!.email,
-      newImageName: imageName, 
+      newImageName: imageName,
       newGender: this.profile!.gender,
       newPhone: this.profile!.phone
     };
-  
+
     this.adminService.updateProfileAdmin(updatedProfile).subscribe(
       response => {
         console.log('Profile updated successfully');
         this.toastr.success('Your profile updated successfully');
+        this.displayImage = `/assets/Images/${imageName}`;
+        this.imageService.updateImage(this.displayImage); // Update image service
       },
       error => {
         console.error('Error updating profile', error);
@@ -95,8 +103,6 @@ export class GetProfileAdminComponent implements OnInit {
       }
     );
   }
-  
-
 
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
@@ -107,6 +113,7 @@ export class GetProfileAdminComponent implements OnInit {
       this.adminService.uploadProfileImage(formData).subscribe(
         (response: GuserDto) => {
           this.displayImage = `/assets/Images/${response.imageName}`;
+          this.imageService.updateImage(this.displayImage); // Update image service
         },
         (error) => {
           console.error('Error uploading image', error);
@@ -114,6 +121,7 @@ export class GetProfileAdminComponent implements OnInit {
       );
     }
   }
+
   triggerFileInput(): void {
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
     fileInput.click();
