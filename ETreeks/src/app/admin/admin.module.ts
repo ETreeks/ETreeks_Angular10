@@ -5,7 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { RegistrationrequestComponent } from './registrationrequest/registrationrequest.component';
+import { RegistrationRequestComponent } from './registrationrequest/registrationrequest.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { ViewTrainerComponent } from './view-trainer/view-trainer.component';
 import { ViewStudentComponent } from './view-student/view-student.component';
@@ -23,6 +23,10 @@ import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartDComponent } from './chart-d/chart-d.component';
 import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.component';
+import { SearchtrainerComponent } from './searchtrainer/searchtrainer.component';
+import { FormsModule } from '@angular/forms';
+import { GetTrainerEmailComponent } from './get-trainer-email/get-trainer-email.component';
+
 
 
 @NgModule({
@@ -30,7 +34,7 @@ import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.
     DashboardComponent,
     SidebarComponent,
     StatisticsComponent,
-    RegistrationrequestComponent,
+    RegistrationRequestComponent,
     ViewUsersComponent,
     ViewTrainerComponent,
     ViewStudentComponent,
@@ -46,12 +50,15 @@ import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.
     ReportComponent,
     ChartComponent,
     ChartDComponent,
-    GetProfileAdminComponent
-  ],
+    GetProfileAdminComponent,
+    SearchtrainerComponent,
+    GetTrainerEmailComponent
+      ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
+    FormsModule
     
   ],
   exports: [

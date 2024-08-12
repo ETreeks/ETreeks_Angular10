@@ -1,11 +1,16 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ProfileTrainerDTO } from 'src/app/dtos/profile-trainer.dto'; // Adjust path as needed
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrainerService {
+  private baseUrl: string = 'https://localhost:7281/api/Trainer';
+  displayImage: any;
+
 
   constructor(private http:HttpClient) { }
 
@@ -38,8 +43,52 @@ getAllUsers(): Observable<Guser[]> {
   return this.http.get<Guser[]>(`https://localhost:7281/api/admin/DisplayAllUsers`);
 }
 
+viewProfile(trainerId: number): Observable<ProfileTrainerDTO> {
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  });
+  return this.http.get<ProfileTrainerDTO>(`${this.baseUrl}/${trainerId}`, { headers });
 }
 
+updateProfile(profile: ProfileTrainerDTO): Observable<void> {
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  });
+  return this.http.put<void>(this.baseUrl, profile, { headers });
+}
+
+updateUser(profile: ProfileTrainerDTO) {
+  profile.imagename = this.displayImage;
+  this.http.put('https://localhost:7281/api/Trainer', profile).subscribe(
+    (resp: any) => {
+      alert('DONE');
+    },
+    err => {
+      console.log(err.status);
+    }
+  );
+}
+
+getTrainer(trainerId: number): Observable<any> {
+  const url = `https://localhost:7281/api/trainer/${trainerId}`;
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  });
+  return this.http.get<any>(url, { headers });
+}
+
+uploadFile(file: FormData) {
+  this.http.post('https://localhost:7281/api/Trainer/uploadImage/', file).subscribe(
+    (resp: any) => {
+      this.displayImage = resp.imagename;
+      console.log(resp);
+    },
+    err => {
+      alert('Upload Image failed');
+    }
+  );
+}
+}
 
 export interface TrainerSearch {
   fullName: string;

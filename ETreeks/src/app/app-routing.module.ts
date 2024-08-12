@@ -7,12 +7,11 @@ import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
 
 const routes: Routes = [
-
-  { path: 'admin', loadChildren:()=>AdminModule},
-  { path: 'trainer', loadChildren:()=>TrainerModule},
-  { path: 'student', loadChildren:()=>StudentModule},
-  { path: 'auth', loadChildren:()=>AuthModule},
-  { path: '', loadChildren:()=>HomeModule} 
+  { path: 'admin', loadChildren: () => AdminModule },
+  { path: 'trainer', loadChildren: () => TrainerModule },
+  { path: 'student', loadChildren: () => StudentModule },
+  { path: 'auth', loadChildren: () => AuthModule },
+  { path: '', loadChildren: () => HomeModule }
 ];
 
 @NgModule({

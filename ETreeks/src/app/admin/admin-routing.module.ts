@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { RegistrationrequestComponent } from './registrationrequest/registrationrequest.component';
+import { RegistrationRequestComponent } from './registrationrequest/registrationrequest.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { ViewTrainerComponent } from './view-trainer/view-trainer.component';
 import { ViewStudentComponent } from './view-student/view-student.component';
@@ -16,6 +16,9 @@ import { ManagetestimonialsComponent } from './managetestimonials/managetestimon
 import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
 import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.component';
+import { SearchtrainerComponent } from './searchtrainer/searchtrainer.component';
+import { GetTrainerEmailComponent } from './get-trainer-email/get-trainer-email.component';
+
 
 const routes: Routes = [
   {
@@ -28,7 +31,7 @@ const routes: Routes = [
   },
   {
     path:'registrationrequest',
-    component:RegistrationrequestComponent
+    component:RegistrationRequestComponent
   },
   {
     path:'allusers',
@@ -79,6 +82,13 @@ const routes: Routes = [
     path:'GPA',
     component:GetProfileAdminComponent
   } ,
+  {
+    path:'searchtrainer',
+    component:SearchtrainerComponent
+  },
+  { path: 'get-trainer-email',
+     component: GetTrainerEmailComponent },
+
 
   {
     path:'chart',

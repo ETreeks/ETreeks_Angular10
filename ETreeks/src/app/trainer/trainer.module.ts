@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TrainerRoutingModule } from './trainer-routing.module';
 import { SidebartrainerComponent } from './sidebartrainer/sidebartrainer.component';
@@ -7,6 +11,7 @@ import { ManagesessionsComponent } from './managesessions/managesessions.compone
 import { ManagecourseComponent } from './managecourse/managecourse.component';
 import { CreatecourseComponent } from './createcourse/createcourse.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteprofileComponent } from './deleteprofile/deleteprofile.component';
 import { ManagereservationComponent } from './managereservation/managereservation.component';
@@ -17,7 +22,7 @@ import { DashboardtrainerComponent } from './dashboardtrainer/dashboardtrainer.c
 import { HometrainerComponent } from './hometrainer/hometrainer.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddlocationComponent } from './addlocation/addlocation.component';
-
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,9 @@ import { AddlocationComponent } from './addlocation/addlocation.component';
     CategorycardComponent,
     DashboardtrainerComponent,
     HometrainerComponent,
-    AddlocationComponent
+
+    AddlocationComponent,
+      FileUploadComponent
   ],
   imports: [
     CommonModule,
