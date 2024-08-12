@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
 import { CourseComponent } from './course/course.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 
 
@@ -22,6 +23,7 @@ import { CourseComponent } from './course/course.component';
     CourseCardComponent,
     CategoryCardComponent,
     CourseComponent,
+    TrainerComponent,
   ],
   imports: [
     CommonModule,

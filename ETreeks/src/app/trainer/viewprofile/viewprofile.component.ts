@@ -38,6 +38,7 @@ export class ViewprofileComponent implements OnInit {
         error => console.error('Error updating profile', error)
       );
     }
+    window.location.reload();
   }
 
   updateProfile() {

@@ -13,6 +13,10 @@ import { SearchsessioncourseComponent } from './searchsessioncourse/searchsessio
 import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercourses.component';
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { MycoursesComponent } from './mycourses/mycourses.component';
+import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
+import { ViewtcoursesComponent } from './viewtcourses/viewtcourses.component';
+import { WeatherComponent } from './weather/weather.component';
+import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   {
@@ -32,10 +36,10 @@ const routes: Routes = [
     path:'viewteacher',
     component:ViewteacherstdComponent
   },
-  {
-    path:'history',
-    component:HistorystdComponent
-  },
+  // {
+  //   path:'history',
+  //   component:HistorystdComponent
+  // },
   {
     path:'testimonial',
     component:TestimonialstdComponent
@@ -58,15 +62,28 @@ const routes: Routes = [
     component:SearchsessioncourseComponent
   }
   , {
-    path:'viewtrainercourses',
-    component:ViewtrainercoursesComponent
+    path:'viewtcourses',
+    //component:ViewtrainercoursesComponent
+    component:ViewtcoursesComponent
   }
   ,{
-    path:'paymentform',
+    path:'paymentform/:id',
     component:PaymentformComponent
   } ,{
     path:'mycourses',
     component:MycoursesComponent
+  }
+  ,{
+    path:'coursedetails/:id',
+    component:CoursedetailsComponent
+  },
+  {
+    path:'weather',
+    component:WeatherComponent
+  },
+  {
+    path:'history',
+    component:HistoryComponent
   }
 ];
 

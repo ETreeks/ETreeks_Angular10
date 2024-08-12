@@ -23,7 +23,7 @@ export class ManagereservationComponent implements OnInit {
   courses: Course[] = [];
   gusers: Guser[] = [];
   //trainerId: number = 10;
-  trainerId: number = Number(localStorage.getItem('Id'));;
+  trainerId: number = Number(localStorage.getItem('Id'));
   
  
   constructor(private TrainerService: TrainerService) {}
@@ -32,33 +32,48 @@ export class ManagereservationComponent implements OnInit {
   }
 
   loadReservations(): void {
+    const trainerId = Number(localStorage.getItem('Id'));
+ 
     forkJoin([
-      this.TrainerService.getAllReservations(),
+      this.TrainerService.getAllReservations2(),
       this.TrainerService.GetAllCourses(),
       this.TrainerService.getAllUsers()
     ]).subscribe(([reservations, courses, gusers]) => {
-      this.reservations = reservations.filter(reservation => reservation.course_Id === this.trainerId);
+      console.log('Reservations:', reservations);
+      console.log('Courses:', courses);
+      console.log('Users:', gusers);
+      const trainerCourses = courses.filter(course => course.trainer_Id=== trainerId);
+      console.log('Trainer Courses:', trainerCourses);
+ 
+      this.reservations = reservations.filter(reservation =>
+        trainerCourses.some(course => course.id === reservation.course_Id)
+      );
+ 
       this.courses = courses;
       this.gusers = gusers;
  
       this.reservations.forEach(reservation => {
-        reservation.courses = this.courses.find(course => course.id === reservation.course_Id) || { id: 0, name: 'Unknown' };
+        reservation.courses = this.courses.find(course => course.id === reservation.course_Id) || { id: 0, name: 'Unknown', trainer_Id: 0 };
         reservation.gusers = this.gusers.find(user => user.id === reservation.gusers_Id) || { id: 0, fname: 'Unknown', lname: 'Unknown' };
       });
     }, error => {
       console.error('Error fetching reservations or related data', error);
     });
   }
+  
  
   acceptReservation(id: number): void {
     this.TrainerService.acceptReservation(id).subscribe(
+      
       () => {
+      
         this.loadReservations();
       },
       error => {
         console.error('Error accepting reservation', error);
       }
     );
+    window.location.reload();
   }
  
   rejectReservation(id: number): void {
@@ -70,5 +85,6 @@ export class ManagereservationComponent implements OnInit {
         console.error('Error rejecting reservation', error);
       }
     );
+    window.location.reload();
   }
 }

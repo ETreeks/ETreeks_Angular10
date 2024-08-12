@@ -4,9 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
+
 import { StudentModule } from './student/student.module';
 import { RouterModule } from '@angular/router'; // Ensure this import is present
+
+//import { CoursesearchPipe } from './Pipes/coursesearch.pipe';
+//import { CategorysearchPipe } from './Pipes/categorysearch.pipe';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +25,8 @@ import { RouterModule } from '@angular/router'; // Ensure this import is present
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
     StudentModule,
-    RouterModule // Ensure RouterModule is included
+    RouterModule 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

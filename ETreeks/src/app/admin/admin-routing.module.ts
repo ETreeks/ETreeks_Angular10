@@ -11,7 +11,6 @@ import { ManagecategoriesComponent } from './managecategories/managecategories.c
 import { EdithomeComponent } from './edithome/edithome.component';
 import { EditaboutComponent } from './editabout/editabout.component';
 import { ViewcontactComponent } from './viewcontact/viewcontact.component';
-import { SearchdatesComponent } from './searchdates/searchdates.component';
 import { ManagetestimonialsComponent } from './managetestimonials/managetestimonials.component';
 import { ReportComponent } from './report/report.component';
 import { ChartComponent } from './chart/chart.component';
@@ -65,10 +64,7 @@ const routes: Routes = [
     path:'viewcontact',
     component:ViewcontactComponent
   },
-  {
-    path:'SearchDate',
-    component:SearchdatesComponent
-  },
+
   {
     path:'testimonial',
     component:ManagetestimonialsComponent
@@ -94,6 +90,11 @@ const routes: Routes = [
     path:'chart',
     component:ChartComponent
   }
+  // ,
+  // {
+  //   path:'searchtrainer',
+  //   component:SearchtrainerComponent
+  // }
 
 ];
 

@@ -24,7 +24,27 @@ export class TrainerService {
     const trainerId = Number(localStorage.getItem('Id'));
     return this.http.get<TrainerSearch[]>(`https://localhost:7281/api/Trainer/GetAllReservationT/`+trainerId);
   }
+completed :any=[];
+getallreservationT2()
+{
+  const trainerId = Number(localStorage.getItem('Id'));
+  this.http.get<any[]>(`https://localhost:7281/api/Trainer/GetAllReservationT2/`+trainerId).subscribe(res=>
+{
+this.completed=res; 
+},
+err=>{
+console.log("error");
+console.log(err.status);
+console.log(err.manage);
+})
+}
+
+
   getAllReservations(): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`https://localhost:7281/api/reservation`);
+  }
+  getAllReservations2(): Observable<Reservation[]> {
+    const trainerId = Number(localStorage.getItem('Id'));
     return this.http.get<Reservation[]>(`https://localhost:7281/api/reservation`);
   }
   
@@ -43,12 +63,28 @@ getAllUsers(): Observable<Guser[]> {
   return this.http.get<Guser[]>(`https://localhost:7281/api/admin/DisplayAllUsers`);
 }
 
+
 viewProfile(trainerId: number): Observable<ProfileTrainerDTO> {
   const headers = new HttpHeaders({
     'Authorization': `Bearer ${localStorage.getItem('token')}`
   });
   return this.http.get<ProfileTrainerDTO>(`${this.baseUrl}/${trainerId}`, { headers });
 }
+getAllUsers2(): Observable<any[]> {
+  return this.http.get<any[]>(`https://localhost:7281/api/admin/DisplayAllUsers`);
+}
+completedYes(id: number) {
+  this.http.put('https://localhost:7281/api/Trainer/Completed/' + id, {}).subscribe(
+    (res: any) => {
+      console.log('Yes');
+      window.location.reload();
+    },
+    err => {
+      console.log('Error', err);
+    }
+  );
+}
+
 
 updateProfile(profile: ProfileTrainerDTO): Observable<void> {
   const headers = new HttpHeaders({
@@ -112,8 +148,8 @@ export interface Reservation {
   export interface Course {
     id: number;
     name: string;
+    trainer_Id:number;
   }
-   
   export interface Guser {
     id: number;
     fname: string;

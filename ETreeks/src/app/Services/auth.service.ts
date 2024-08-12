@@ -1,14 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient , private router :Router) { }
+  constructor(private http: HttpClient , private router :Router 
+    , private toster : ToastrService , private snackBar:MatSnackBar) { }
   Login(userName:any , password:any)
   {
 var body ={
@@ -23,7 +26,24 @@ const requestOptions = {
   headers : new HttpHeaders(headerDirc)
 }
 console.log(body);
+//localStorage.setItem('username', body.username);
+
+console.log(localStorage.getItem('username'));
+debugger
 this.http.post('https://localhost:7281/api/Login',body,requestOptions).subscribe((resp :any) => {
+  debugger
+  if (resp === "Your registration is pending. Please wait for approval.") {
+    //alert("Your registration is pending. Please wait for approval.");
+    this.toster.error("Your registration is pending. Please wait for approval.");
+
+    this.snackBar.open('Notification: Your registration is pending. Please wait for approval.', 'Close', {
+      verticalPosition: 'top', 
+      horizontalPosition: 'center' 
+    });
+
+    return ;
+  }
+ localStorage.setItem('username', body.username);
   const responce ={
     token:resp.toString()
   }
@@ -48,10 +68,17 @@ debugger
 
   
   console.log("user login  correctly");
+  this.toster.success("user login  correctly");
  }, err => {
-   console.log("An error occurred in the login process");
+   console.log("An error occurred in the login process ");
+   this.toster.error("An error occurred in the login process");
+   this.toster.error("username or password are wrong");
  }
 );}
+
+
+
+
 getTrainerIdFromToken(): number | null {
   const token = localStorage.getItem('token');
   if (token) {
@@ -68,4 +95,20 @@ getStudentIdFromToken(): number | null {
   }
   return null;
 }
+
+// console.log("User logged in correctly");
+// }, err=> {
+//   debugger
+//   if (err.error.message === "Your registration is pending. Please wait for approval.") {
+//     alert("Your registration is pending. Please wait for approval.");
+//    // this.toster.error("Your registration is pending. Please wait for approval.");
+//   } else {
+//     console.log("An error occurred in the login process");
+//   }
+// });}
+
+
+
+
+
 }

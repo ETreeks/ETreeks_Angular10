@@ -7,18 +7,15 @@ data-sidebar-position="fixed" data-header-position="fixed">
       <!-- <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button> -->
       <label> <strong> Search for the course name</strong></label>
       <input type="text" [(ngModel)]="_filetrText" class="search-input">
-        <div class="col-lg-8 d-flex align-items-stretch">
+        
             <div class="card w-100">
-              <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button>
+              <button class="btn create-button" (click)="openCreateCourseDailog()" type="button" >Create New</button>
               <div class="card-body p-6">
-                <h5 class="card-title fw-semibold mb-6">All Courses</h5>
+                <h6 class="card-title fw-semibold mb-6">All Courses</h6>
                 <div class="table-responsive">
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-6">
                       <tr>
-                        <th class="border-bottom-0" style="width: 10%;">
-                          <h6 class="fw-semibold mb-0">Id</h6>
-                        </th>
                         <th class="border-bottom-0" style="width: 20%;">
                           <h6 class="fw-semibold mb-0">Name</h6>
                         </th>
@@ -47,9 +44,8 @@ data-sidebar-position="fixed" data-header-position="fixed">
                     <tbody>
                       <!-- <tr *ngFor="let course of mc.courses"> -->
                         <tr *ngFor="let course of mc.courses | coursesearch:_filetrText">
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{course.id}}</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{course.name}}</h6>
+                            <h5 class="fw-semibold mb-1">{{course.name}}</h5>
                             <!-- <span class="fw-normal">Web Designer</span>                           -->
                         </td>
                      
@@ -75,12 +71,13 @@ data-sidebar-position="fixed" data-header-position="fixed">
                           </td>
                 
                           <td>
-                            <button  class="btn-primary" (click)="openUpdateDailog(course)"> Update </button>
-                          </td>
-                            <td>
-                            <button class="btn-danger" (click)="openDeleteDailog(course.id)"> Delete </button>
-                            </td>  
+                            <button  class="btn update-button" (click)="openUpdateDailog(course)"> Update </button>
                           
+                           <button class="btn delete-button" (click)="openDeleteDailog(course.id)"> Delete </button>
+                           
+                          </td>
+                           
+                           
                       </tr>
                       
                     </tbody>
@@ -88,7 +85,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
                 </div>
               </div>
             </div>
-        </div>
+       
     </div>
 </div>
 
@@ -147,21 +144,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
   
 
 
-<style>
-  .table {
-      width: 100%; 
-      font-size: 1.2rem; 
-  }
 
-  .table-responsive {
-      overflow-x: auto;
-  }
-
-  .card {
-      padding: 20px; 
-      border-radius: 0.5rem; 
-  }
-</style>
 
 
 

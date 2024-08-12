@@ -1,2 +1,54 @@
-<p>mycourses works!</p>
-<button class="button-add-review" (click)="openReviewDialog()">Add Review</button>
+<app-studentnavbar></app-studentnavbar>
+
+<div class="container">
+  <h2>Your Reservations</h2>
+
+  <div *ngIf="reservations.length === 0">
+    <p>No reservations found for your account.</p>
+  </div>
+
+  <div *ngIf="reservations.length > 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Reservation Date</th>
+          <th>Status</th>
+          <th>Completed</th>
+          <th>Review</th>
+          <th>Certification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <!-- <td>{{ reservation.course_Id }}</td> -->
+          <td>{{ courseDetailsMap.get(reservation.course_Id) || 'Unknown Course' }}</td>
+          <td>{{ reservation.reservationdate | date: 'short' }}</td>
+          <td>{{ reservation.reservationstatus }}</td>
+          <td>{{ reservation.completed }}</td>
+          <td>
+            <button 
+              class="button-add-review" 
+              (click)="openCreateRDailog(reservation.course_Id)" 
+              [disabled]="reservation.reservationstatus === 'Pending'">
+              Add Review
+            </button>
+          </td>
+          <td>
+            <div>
+ 
+              <button class="custom-button" (click)="loadReservations(reservation.id,reservation.course_Id)"
+              [disabled]="reservation.reservationstatus === 'Pending' || reservation.completed === 'No' ">
+              Generate Certificates</button>
+             
+              <canvas #canvas width="800" height="600" style="display:none;"></canvas>
+             
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -23,6 +23,8 @@ import { HometrainerComponent } from './hometrainer/hometrainer.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddlocationComponent } from './addlocation/addlocation.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
+import { LecturerequestComponent } from './lecturerequest/lecturerequest.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +41,11 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     CategorycardComponent,
     DashboardtrainerComponent,
     HometrainerComponent,
-
     AddlocationComponent,
-      FileUploadComponent
+      FileUploadComponent,
+    AddlocationComponent,
+    CompletedcourseComponent,
+    LecturerequestComponent
   ],
   imports: [
     CommonModule,

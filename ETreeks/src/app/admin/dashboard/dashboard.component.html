@@ -26,9 +26,9 @@ data-sidebar-position="fixed" data-header-position="fixed">
         </ul>
         
 
-        <div class="nav-item">
-          <p> Welcome Admin </p>
-        </div>
+        <!-- <div class="nav-item">
+          <p> Welcome to the admin dashboard </p>
+        </div> -->
 
 
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
@@ -74,17 +74,19 @@ data-sidebar-position="fixed" data-header-position="fixed">
                   <h5 class="card-title fw-semibold"> Users </h5>
                 </div>
               </div>
-              <div id="chart">  <app-chart-d></app-chart-d>         </div>
+              <div id="chart">  <app-chart-d></app-chart-d>   </div>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Yearly Breakup -->
+
+
+
               <div class="card overflow-hidden">
                 <div class="card-body p-4">
-                  <h5 class="card-title">Number Of Registered Trainers</h5>
+                  <h5 class="card-title">Number Of Registered Trainers </h5>
                   <div class="row align-items-center">
                     <div class="col-8">
                       <div class="d-flex align-items-center">
@@ -99,6 +101,9 @@ data-sidebar-position="fixed" data-header-position="fixed">
                   </div>
                 </div>
               </div>
+
+
+
             </div>
             <div class="col-lg-12">
               <!-- Monthly Earnings -->
@@ -119,6 +124,45 @@ data-sidebar-position="fixed" data-header-position="fixed">
                   </div>
                 </div>
               </div>
+
+              <div class="card overflow-hidden">
+                <div class="card-body p-4">
+                  <h5 class="card-title">Number Of  Accepted Trainer </h5>
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <div class="d-flex align-items-center">
+                        <p class="card-text">{{admin.countAcceptedTrainers}}</p>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="d-flex justify-content-center">
+                        <div id="breakup"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card overflow-hidden">
+                <div class="card-body p-4">
+                  <h5 class="card-title">Number Of  Pending Trainer </h5>
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <div class="d-flex align-items-center">
+                        <p class="card-text">{{admin.countPendingTrainers}}</p>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="d-flex justify-content-center">
+                        <div id="breakup"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
         </div>

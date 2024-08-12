@@ -19,7 +19,7 @@ export class ViewteacherstdComponent implements OnInit {
   showcourses()
   {
     debugger
-    this.router.navigate(['viewtrainercourses']);
+    this.router.navigate(['viewtcourses']);
   }
 
 

@@ -6,10 +6,10 @@ data-sidebar-position="fixed" data-header-position="fixed">
   <div class="container-fluid">
 <div class="row">
 
-    <div class="col-lg-8 d-flex align-items-stretch">
+    <!-- <div class="col-lg-8 d-flex align-items-stretch"> -->
       <div class="card w-100">
         <div class="card-body p-4">
-          <h5 class="card-title fw-semibold mb-4">view All Student</h5>
+          <h6 class="card-title fw-semibold mb-4">view All Student</h6>
           <div class="table-responsive">
             <table class="table text-nowrap mb-0 align-middle">
               <thead class="text-dark fs-4">
@@ -39,28 +39,28 @@ data-sidebar-position="fixed" data-header-position="fixed">
               </thead>
               <tbody>
                 <tr *ngFor="let all3 of admin4.viewS">
-                  <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{all3.username}}</h6></td>
+                  <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all3.username}}</h5></td>
                   
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{all3.fname}}</h6>
+                      <h5 class="fw-semibold mb-1">{{all3.fname}}</h5>
                                            
                   </td>
                   <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{all3.lname}}</h6>
+                    <h5 class="fw-semibold mb-1">{{all3.lname}}</h5>
                 </td>
                   <td class="border-bottom-0">
-                    <p class="mb-0 fw-normal">{{all3.email}}</p>
+                    <h5 class="fw-semibold mb-1">{{all3.email}}</h5>
+                  </td>
+               
+                  <td>
+                      
+                    <img src="../../../assets/Images/{{all3.imagename}}" style="width: 100%;">  
+               </td>
+                  <td class="border-bottom-0">
+                    <h5 class="fw-semibold mb-0 fs-4">{{all3.gender}}</h5>
                   </td>
                   <td class="border-bottom-0">
-                    <div class="d-flex align-items-center gap-2">
-                      <span class="badge bg-primary rounded-3 fw-semibold">{{all3.imagename}}</span>
-                    </div>
-                  </td>
-                  <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0 fs-4">{{all3.gender}}</h6>
-                  </td>
-                  <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0 fs-4">{{all3.phone}}</h6>
+                    <h5 class="fw-semibold mb-0 fs-4">{{all3.phone}}</h5>
                   </td>
                 </tr> 
                    
@@ -69,7 +69,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
           </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 
   </div>

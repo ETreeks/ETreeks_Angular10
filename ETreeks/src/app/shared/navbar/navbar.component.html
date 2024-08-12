@@ -75,7 +75,7 @@
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <!-- <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav py-0">
                             <a routerLink="" class="nav-item nav-link active">Home</a>
                             <a routerLink="/about" class="nav-item nav-link">About</a>
@@ -95,7 +95,42 @@
                                     routerLink="/auth/studentregister">Register as Student</a> 
                                 </div>
                             </div>
-                    </div>
+
+                              <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a class="py-2 px-4 d-block" routerLink="/student/viewprofile">View Profile</a>
+                                <a class="py-2 px-4 d-block" routerLink="/student/editprofile">Edit Profile</a>
+                                <a class="py-2 px-4 d-block" routerLink="/student/deleteprofile">Delete Profile</a>
+                                <a class="py-2 px-4 d-block" (click)="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </div> -->
+                
+                
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+    <div class="navbar-nav py-0">
+        <a routerLink="" class="nav-item nav-link active">Home</a>
+        <a routerLink="/about" class="nav-item nav-link">About</a>
+        <a routerLink="/course" class="nav-item nav-link">Courses</a>
+        <a routerLink="/trainerstd" class="nav-item nav-link">Teachers</a>
+        <a routerLink="/contact" class="nav-item nav-link">Contact</a>
+        <a routerLink="/testimonial" class="nav-item nav-link">Testimonials</a>
+        <div class="navbar-nav py-0">
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a class="py-2 px-4 d-block" routerLink="/auth/login">Login</a>
+                    <a class="py-2 px-4 d-block" routerLink="/auth/register">Register as Coach</a>
+                    <a class="py-2 px-4 d-block" routerLink="/auth/studentregister">Register as Student</a>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+</div>
+
                 </nav>
             </div>
         </div>

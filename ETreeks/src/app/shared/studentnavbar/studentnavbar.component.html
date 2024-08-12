@@ -22,7 +22,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav py-0">
+                    <!-- <div class="navbar-nav py-0">
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 Notifications <span *ngIf="notifications2.length > 0" class="badge badge-danger">{{ notifications2.length }}</span>
@@ -56,7 +56,49 @@
                      
                       
                      
-                      </div>
+                      </div> -->
+
+
+                      <div class="navbar-nav py-0">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Notifications <span *ngIf="notifications2.length > 0" class="badge badge-danger">{{ notifications2.length }}</span>
+                            </a>
+                            <div class="dropdown-menu rounded-0 m-0 dropdown-scroll">
+                                <div *ngIf="notifications2.length > 0; else noNotifications">
+                                    <div *ngFor="let notification of notifications2" class="dropdown-item notification-item">
+                                        <p class="notification-message">{{ notification.message }}</p>
+                                    </div>
+                                </div>
+                                <ng-template #noNotifications>
+                                    <a class="dropdown-item">No notifications available.</a>
+                                </ng-template>
+                            </div>
+                        </div>
+                      
+                        <a routerLink="/student/" class="nav-item nav-link active">Home</a>
+                        <a routerLink="/student/viewcategory" class="nav-item nav-link">Category</a>
+                        <a routerLink="/student/viewcourse" class="nav-item nav-link">Courses</a>
+                        <a routerLink="/student/viewteacher" class="nav-item nav-link">Teachers</a>
+                        <a routerLink="/student/mycourses" class="nav-item nav-link">My courses</a>
+                        <a routerLink="/student/searchsessioncourse" class="nav-item nav-link">Search Session</a>
+                        <a routerLink="/student/weather" class="nav-item nav-link">Weather</a>
+                        <a routerLink="/student/history" class="nav-item nav-link">History</a>
+                        <!-- <a routerLink="/student/testimonial" class="nav-item nav-link">Testimonials</a> -->
+                    
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a class="py-2 px-4 d-block" routerLink="/student/viewprofile">View & Edit  Profile</a>
+                                <!-- <a class="py-2 px-4 d-block" routerLink="/student/editprofile">Edit Profile</a> -->
+                                <a class="py-2 px-4 d-block" routerLink="/student/deleteprofile">Delete Profile</a>
+                                <a class="py-2 px-4 d-block" (click)="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
 
                     <div class="navbar-nav py-0">
                          <!-- <div class="notification-icon nav-item nav-link dropdown">
@@ -75,7 +117,7 @@
                     </div>
                
 
-                       <div class="nav-item dropdown">
+                       <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a class="  py-2 px-4 ml-auto d-none d-lg-block" 
@@ -88,7 +130,7 @@
                                   (click)="logout()" >Logout </a> 
                              
                             </div>
-                        </div>
+                        </div> -->
                 </div>
              
             </nav>

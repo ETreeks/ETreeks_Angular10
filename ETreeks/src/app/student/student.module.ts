@@ -21,6 +21,10 @@ import { ViewtrainercoursesComponent } from './viewtrainercourses/viewtrainercou
 import { PaymentformComponent } from './paymentform/paymentform.component';
 import { MycoursesComponent } from './mycourses/mycourses.component';
 import { CreatereviewComponent } from './createreview/createreview.component';
+import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
+import { ViewtcoursesComponent } from './viewtcourses/viewtcourses.component';
+import { WeatherComponent } from './weather/weather.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -42,7 +46,11 @@ import { CreatereviewComponent } from './createreview/createreview.component';
     ViewtrainercoursesComponent,
     PaymentformComponent,
     MycoursesComponent,
-    CreatereviewComponent
+    CreatereviewComponent,
+    CoursedetailsComponent,
+    ViewtcoursesComponent,
+    WeatherComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,

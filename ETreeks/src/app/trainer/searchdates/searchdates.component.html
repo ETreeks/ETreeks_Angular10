@@ -16,8 +16,8 @@
                 <label for="endDate">End Date:</label>
                 <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required class="form-control mb-3">
                 
-                <button type="submit" class="btn btn-primary">Search</button>
-                <button type="button" (click)="clearForm()" class="btn btn-secondary">Clear</button>
+                <button type="submit" class="btn btn-primary btn-space">Search</button>
+                <button type="button" (click)="clearForm()" class="btn btn-secondary btn-space">Clear</button>
               </form>
           </div>
           <br>
@@ -42,16 +42,16 @@
                   <tbody>
                       <tr *ngFor="let reservation of filteredReservations">
                           <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-0">{{ reservation.fullName }}</h6>
+                              <h5 class="fw-semibold mb-0">{{ reservation.fullName }}</h5>
                           </td>
                           <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-0">{{ reservation.courseName }}</h6>
+                              <h5 class="fw-semibold mb-0">{{ reservation.courseName }}</h5>
                           </td>
                           <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-0">{{ reservation.categoryname }}</h6>
+                              <h5 class="fw-semibold mb-0">{{ reservation.categoryname }}</h5>
                           </td>
                           <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-0">{{ reservation.reservationdate | date:'short' }}</h6>
+                              <h5 class="fw-semibold mb-0">{{ reservation.reservationdate | date:'short' }}</h5>
                           </td>
                       </tr>
                   </tbody>

@@ -45,7 +45,7 @@ export class AdminService {
 
   gethome : any=[];
   testimonial:any=[];
-
+ 
   //hits api
   getAllRegisteredTrainers()
   {
@@ -288,7 +288,9 @@ err=>{
   displayAllTrainers(): Observable<any[]> {
     return this.http.get<any[]>('https://localhost:7281/api/Admin/DisplayAllTrainers');
   }
-  
+  DisplayAllStudents2(): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7281/api/Admin/DisplayAllStudents');
+  }
 
   DisplayAllStudents() {
     this.http.get('https://localhost:7281/api/Admin/DisplayAllStudents').subscribe(
@@ -491,8 +493,9 @@ acceptProfileAdmin(userId: number, newRegistrationStatus: string): Observable<vo
   return this.http.post<void>(url, {});
 }
 
-getAllPendingTrainers(): Observable<ProfileTrainerDTO[]> {
-  return this.http.get<ProfileTrainerDTO[]>(`${this.apiUrl}/GetAllPendingTrainer`).pipe(
+
+getAllPendingTrainers2(): Observable<ProfileTrainerDTO[]> {
+  return this.http.get<ProfileTrainerDTO[]>(`${this.apiUrl}/GetAllPendingTrainer2`).pipe(
     tap((data) => console.log('Pending trainers data:', data)),
     catchError((error) => {
       console.error('Error fetching pending trainers', error);
@@ -500,6 +503,7 @@ getAllPendingTrainers(): Observable<ProfileTrainerDTO[]> {
     })
   );
 }
+
 
 approveTrainer(id: number): Observable<void> {
   return this.http.post<void>(`${this.apiUrl}/ApproveTrainer/${id}`, {});

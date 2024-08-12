@@ -29,6 +29,7 @@ import { GetTrainerEmailComponent } from './get-trainer-email/get-trainer-email.
 
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -53,7 +54,9 @@ import { GetTrainerEmailComponent } from './get-trainer-email/get-trainer-email.
     GetProfileAdminComponent,
     SearchtrainerComponent,
     GetTrainerEmailComponent
-      ],
+    
+
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,

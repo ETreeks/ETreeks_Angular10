@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./searchtrainer.component.css']
 })
 export class SearchtrainerComponent {
+
   trainerName: string = '';  // Bind to input field
   trainers: any[] = [];      // Store search results
   searchCompleted: boolean = false;  // To track if search is done

@@ -17,7 +17,7 @@ export class RegistrationRequestComponent implements OnInit {
   }
 
   loadPendingTrainers(): void {
-    this.adminService.getAllPendingTrainers().subscribe(
+    this.adminService.getAllPendingTrainers2().subscribe(
       (data) => {
         console.log('Pending trainers:', data);
         this.pendingTrainers = data;

@@ -8,7 +8,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
 <div class="body-wrapper">
     <div class="container-fluid">
     
-        <div class="col-lg-8 d-flex align-items-stretch">
+        
             <div class="card w-100">
               <div class="card-body p-6">
                 <h5 class="card-title fw-semibold mb-6">All Testimonials</h5>
@@ -16,9 +16,6 @@ data-sidebar-position="fixed" data-header-position="fixed">
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-6">
                       <tr>
-                        <th class="border-bottom-0" style="width: 10%;">
-                          <h6 class="fw-semibold mb-0">Id</h6>
-                        </th>
                         <th class="border-bottom-0" style="width: 20%;">
                           <h6 class="fw-semibold mb-0">Testimonial Text</h6>
                         </th>
@@ -33,30 +30,30 @@ data-sidebar-position="fixed" data-header-position="fixed">
                     <tbody>
 
                         <tr *ngFor="let t of A.testimonial">
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{t.id}}</h6></td>
+
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{t.testimonialstext}}</h6>
+                            <h5 class="fw-semibold mb-1">{{t.testimonialstext}}</h5>
                         </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{t.testimonialsstatus}}</p>
+                            <h5 class="mb-0 fw-normal">{{t.testimonialsstatus}}</h5>
                           </td>
                              <td>
-                            <button class="btn-danger" (click)="openDeleteDailog(t.id)"> Delete </button>
+                            <button class="btn delete-button" (click)="openDeleteDailog(t.id)"> Delete </button>
+                       
+                            <button class="btn" 
+                            (click)="AcceptTest(t.id)" 
+                            [disabled]="t.testimonialsstatus === 'Accepted'"
+                            [ngClass]="{'accepted-button': t.testimonialsstatus === 'Accepted'}"
+                            [ngClass]="{'pending-button': t.testimonialsstatus === 'Pending'}"> 
+                      Accept 
+                    </button>
                             </td> 
                             
                             <!-- <td>
                               <button class="btn-primary" (click)="AcceptTest(t.id)"> Accept </button>
                               </td> -->
                            
-                              <td>
-                                <button class="btn" 
-                                        (click)="AcceptTest(t.id)" 
-                                        [disabled]="t.testimonialsstatus === 'Accepted'"
-                                        [ngClass]="{'accepted-button': t.testimonialsstatus === 'Accepted'}"
-                                        [ngClass]="{'pending-button': t.testimonialsstatus === 'Pending'}"> 
-                                  Accept 
-                                </button>
-                              </td>
+                            
                       </tr>
                     </tbody>
                   </table>
@@ -64,7 +61,7 @@ data-sidebar-position="fixed" data-header-position="fixed">
               </div>
             </div>
         </div>
-    </div>
+ 
 </div>
 
 <ng-template #deleteDailog>          

@@ -33,19 +33,8 @@ this.toster.error('something wrong');
 })
 }
 
-getAllAcceptedCourses():any  {
-  this.http.get<any[]>('https://localhost:7281/api/Course').subscribe(
-    res => {
-      this.courses = res.filter((course: any) => course.accepted_Status === 'Accepted');
-      this.toster.success('Retrieved all accepted courses successfully');
-    },
-    err => {
-      console.log('Error');
-      console.log(err.status);
-      console.log(err.message);
-      this.toster.error('Something went wrong');
-    });
-}
+
+
 
 getAllCourses2(): Observable<any[]> {
   return this.http.get<any[]>('https://localhost:7281/api/Course');
@@ -97,6 +86,10 @@ getAllCategories(): Observable<any[]> {
   
 }
 
+getCourseDetails(id:number): Observable<any[]> {
+  return this.http.get<any[]>('https://localhost:7281/api/Course/'+id);
+  
+}
 
 DeleteCategory(id:number)
 {
@@ -232,9 +225,9 @@ console.log("error");
 coursesTC:any=[];
 getAllCoursesTC( trainerId : Number): any {
   
-
+debugger
   this.http.get<any[]>('https://localhost:7281/api/Course').subscribe(res => {
-    this.coursesTC = res.filter(course => course.trainer_Id === trainerId);
+    this.coursesTC = res.filter(course => course.trainer_Id == trainerId);
     this.toster.success('Retrieve All Courses successfully');
   },
   err => {
