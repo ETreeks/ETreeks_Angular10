@@ -494,7 +494,6 @@ acceptProfileAdmin(userId: number, newRegistrationStatus: string): Observable<vo
 }
 
 
-<<<<<<< HEAD
 getAllPendingTrainers2(): Observable<ProfileTrainerDTO[]> {
   return this.http.get<ProfileTrainerDTO[]>(`${this.apiUrl}/GetAllPendingTrainer2`).pipe(
     tap((data) => console.log('Pending trainers data:', data)),
@@ -503,7 +502,8 @@ getAllPendingTrainers2(): Observable<ProfileTrainerDTO[]> {
       return throwError(error);
     })
   );
-=======
+}
+
 displayImage:any;
 
 uploadAttachmenet(image:FormData){
@@ -516,14 +516,8 @@ uploadAttachmenet(image:FormData){
 
 }
 
-
-private apiUrl = 'https://localhost:7281/api/Admin'; 
-
-
 uploadProfileImage(imageData: FormData): Observable<GuserDto> {
   return this.http.post<GuserDto>(`${this.apiUrl}/UploadImageAdmin`, imageData);
-}
->>>>>>> b9e0c5b423aaf8127d7988c65d3e492ef28084a6
 }
 
 

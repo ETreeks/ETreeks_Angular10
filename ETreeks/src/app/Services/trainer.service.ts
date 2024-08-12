@@ -88,15 +88,13 @@ completedYes(id: number) {
 }
 
 
-<<<<<<< HEAD
 updateProfile(profile: ProfileTrainerDTO): Observable<void> {
   const headers = new HttpHeaders({
     'Authorization': `Bearer ${localStorage.getItem('token')}`
   });
   return this.http.put<void>(this.baseUrl, profile, { headers });
-=======
+}
 
-//---------------------------------------------------
 getAllCourseSession(){
   this.http.get('https://localhost:7281/api/CourseSession').subscribe(res=>{
     this.courseSession= res; 
@@ -143,8 +141,6 @@ this.http.put('https://localhost:7281/api/CourseSession',body).subscribe((reap)=
   
 })
 
-}
->>>>>>> b9e0c5b423aaf8127d7988c65d3e492ef28084a6
 }
 
 updateUser(profile: ProfileTrainerDTO) {
