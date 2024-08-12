@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, tap, throwError } from 'rxjs';
 import { GuserDto } from 'src/Interface/guser.dto';
 import { UpdateProfileAdminDto } from 'src/Interface/update-profile-admin.dto';
+import {ProfileTrainerDTO} from'src/app/dtos/profile-trainer.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { UpdateProfileAdminDto } from 'src/Interface/update-profile-admin.dto';
 export class AdminService {
 
   constructor(private http:HttpClient , private toster: ToastrService)  { }
+  private apiUrl = 'https://localhost:7281/api/Admin';
 
   private aboutSubject = new BehaviorSubject<any[]>([]);
   about$ = this.aboutSubject.asObservable();
@@ -445,6 +447,13 @@ AcceptTest(id: number) {
     }
   );
 }
+SearchTrainerByName(name: string): Observable<any[]> {
+  return this.http.get<any[]>(`${this.apiUrl}/SearchTrainerByName`, {
+    params: { trainerName: name } // Pass trainerName as a query parameter
+  });
+
+
+}
 
 
 AcceptCourse(id: number) {
@@ -485,6 +494,16 @@ acceptProfileAdmin(userId: number, newRegistrationStatus: string): Observable<vo
 }
 
 
+<<<<<<< HEAD
+getAllPendingTrainers2(): Observable<ProfileTrainerDTO[]> {
+  return this.http.get<ProfileTrainerDTO[]>(`${this.apiUrl}/GetAllPendingTrainer2`).pipe(
+    tap((data) => console.log('Pending trainers data:', data)),
+    catchError((error) => {
+      console.error('Error fetching pending trainers', error);
+      return throwError(error);
+    })
+  );
+=======
 displayImage:any;
 
 uploadAttachmenet(image:FormData){
@@ -504,7 +523,36 @@ private apiUrl = 'https://localhost:7281/api/Admin';
 uploadProfileImage(imageData: FormData): Observable<GuserDto> {
   return this.http.post<GuserDto>(`${this.apiUrl}/UploadImageAdmin`, imageData);
 }
+>>>>>>> b9e0c5b423aaf8127d7988c65d3e492ef28084a6
 }
+
+
+approveTrainer(id: number): Observable<void> {
+  return this.http.post<void>(`${this.apiUrl}/ApproveTrainer/${id}`, {});
+}
+
+
+removeTrainer(id: number): Observable<void> {
+  return this.http.delete<void>(`${this.apiUrl}/RemoveTrainer/${id}`);
+}
+
+
+getTrainerEmail(trainerId: number): Observable<string> {
+  return this.http.get<any>(`${this.apiUrl}/GetTrainerEmail/${trainerId}`).pipe(
+    map(response => {
+      // Adjust this according to the actual structure of the response object
+      return response.email || 'No email found';
+    }),
+    catchError(error => {
+      console.error('Error fetching trainer email', error);
+      return throwError(error);
+    })
+  );
+}
+
+}
+
+
 
 export interface AdminSearch {
   fullName: string;

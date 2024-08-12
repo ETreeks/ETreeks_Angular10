@@ -76,6 +76,26 @@ debugger
  }
 );}
 
+
+
+
+getTrainerIdFromToken(): number | null {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const decodedToken: any = jwtDecode(token);
+    return decodedToken ? decodedToken.UserId : null; // Adjust the property name based on your token structure
+  }
+  return null;
+}
+getStudentIdFromToken(): number | null {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const decodedToken: any = jwtDecode(token);
+    return decodedToken ? decodedToken.UserId : null; // Adjust the property name based on your token structure
+  }
+  return null;
+}
+
 // console.log("User logged in correctly");
 // }, err=> {
 //   debugger
