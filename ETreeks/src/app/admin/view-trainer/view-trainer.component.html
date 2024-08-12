@@ -179,8 +179,9 @@ data-sidebar-position="fixed" data-header-position="fixed">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button"
                                                         id="dropdownMenuButton{{all2.id}}" data-bs-toggle="dropdown"
                                                         aria-expanded="false">
-                                                    {{ getStatusLabel(all2.Registration_Status_Trainer) }}
-                                                </button>
+                                                        <!-- {{all2.registration_Status_Trainer}} -->
+                                                    {{ getStatusLabel(all2.registration_Status_Trainer) }}
+                                                </button> 
                                                 <ul class="dropdown-menu dropdown-menu-end"
                                                     [attr.aria-labelledby]="'dropdownMenuButton' + all2.id">
                                                     <li *ngFor="let status of statusOptions">

@@ -19,6 +19,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AddlocationComponent } from './addlocation/addlocation.component';
 import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
 import { LecturerequestComponent } from './lecturerequest/lecturerequest.component';
+import { CreateCourseSessionComponent } from './create-course-session/create-course-session.component';
+import { CourseSessionComponent } from './course-session/course-session.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { LecturerequestComponent } from './lecturerequest/lecturerequest.compone
     HometrainerComponent,
     AddlocationComponent,
     CompletedcourseComponent,
-    LecturerequestComponent
+    LecturerequestComponent,
+    CreateCourseSessionComponent,
+    CourseSessionComponent
   ],
   imports: [
     CommonModule,

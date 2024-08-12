@@ -484,6 +484,26 @@ acceptProfileAdmin(userId: number, newRegistrationStatus: string): Observable<vo
   return this.http.post<void>(url, {});
 }
 
+
+displayImage:any;
+
+uploadAttachmenet(image:FormData){
+  this.http.post('https://localhost:7281/api/Admin/uploadImage',image).subscribe((resp:any)=>{
+    this.displayImage= resp.imagename;
+  },err=>{
+    console.log('error');
+    
+  })
+
+}
+
+
+private apiUrl = 'https://localhost:7281/api/Admin'; 
+
+
+uploadProfileImage(imageData: FormData): Observable<GuserDto> {
+  return this.http.post<GuserDto>(`${this.apiUrl}/UploadImage`, imageData);
+}
 }
 
 export interface AdminSearch {

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { map, Observable } from 'rxjs';
+import { GuserDto } from 'src/Interface/guser.dto';
 import { ProfileStudentDTO } from 'src/Interface/profile-student-dto';
 
 @Injectable({
@@ -12,6 +13,7 @@ export class StudentService {
   constructor(private http:HttpClient , private toster:ToastrService) { }
   notif:any=[];
   courses:any=[];
+
 
   CreateBooking(courseId: number, userId: number): void {
     debugger
@@ -107,6 +109,13 @@ updateProfile(profileStudentDto: ProfileStudentDTO): Observable<void> {
   return this.http.put<void>(`${this.apiProfileUrl}`, profileStudentDto);
 }
 
+private apiUrl = 'https://localhost:7281/api/Student'; 
+
+
+uploadProfileImage(imageData: FormData): Observable<ProfileStudentDTO> {
+  return this.http.post<ProfileStudentDTO>(`${this.apiUrl}/UploadImage`, imageData);
+}
+
 getAllReviews(): Observable<Review[]> {
   return this.http.get<Review[]>('https://localhost:7281/api/Review');
 }
@@ -172,11 +181,13 @@ getAllTestH(): Observable<any[]> {
     map((testimonials: any[]) => testimonials.filter(test => test.gusers_Id === userID))
   );
 
-
-
-
-
 } 
+
+
+
+
+
+
 }
 export interface Review {
   gusers: Guser;
